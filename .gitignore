@@ -175,3 +175,4 @@ cython_debug/
 .DS_Store
 data/prompts.csv
 /nltk_data
+data/prompts_full.csv
