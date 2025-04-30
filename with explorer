@@ -1,0 +1,1960 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Ncks0uTDzzbr"
+      },
+      "source": [
+        "# negotiating the past"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "PAMm3ta9zzbt"
+      },
+      "source": [
+        "To install the environment, please read README.md"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "b9P3w6zjzzbu"
+      },
+      "source": [
+        "## Project Overview"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "FOnXyO8-zzbv"
+      },
+      "source": [
+        "This presentation explores the intersection of historical imagination, artificial intelligence, and collective memory. We'll examine how users \"negotiate\" with AI systems to express their conceptions of the past, and how these interactions can reveal tensions between user expectations and AI-embedded historical patterns."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "l3hVHSpLzzbv"
+      },
+      "source": [
+        "## Structure"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "3gYah1yFzzbw"
+      },
+      "source": [
+        "1. **Theoretical Framework**: How LLMs encode historical perspectives\n",
+        "2. **Methodological Approach**: Analyzing historical references in prompts\n",
+        "3. **Results Analysis**: What prompt analysis reveals about historical imagination\n",
+        "4. **Conclusion**: New spaces for historical negotiation"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "9u9weciKzzbw"
+      },
+      "source": [
+        "# Part I: Theoretical Framework"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Hyk3aN1Wzzbx"
+      },
+      "source": [
+        "## LLMs and Embedded Historical Patterns"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "mmzyS9Vqzzbx"
+      },
+      "source": [
+        "- LLMs as Statistical Pattern Recognizers\n",
+        "- Training Data as Historical Record\n",
+        "- Historical Biases in Language Models\n",
+        "- \"Stochastic Parrots\" and Historical Truth"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "InBd6u7Vzzbz"
+      },
+      "source": [
+        "## Technical Foundation of LLMs"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8OpZ0_Mtzzbz"
+      },
+      "source": [
+        "LLMs rely on transformer architectures that predict tokens based on previous context. Their \"knowledge\" of history comes from statistical patterns in training data, not genuine understanding. This creates an interesting dynamic when users prompt these systems about historical topics - the system's responses reveal embedded historical narratives from their training data."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "D2oCbKbtzzbz"
+      },
+      "source": [
+        "## Historical Knowledge in Vector Space"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "IPItExUhzzb0"
+      },
+      "source": [
+        "- Word embeddings capture semantic relationships\n",
+        "- Historical concepts represented as vectors\n",
+        "- Temporal relationships encoded in semantic proximity\n",
+        "- Cultural associations embedded in language patterns\n",
+        "\n",
+        "Within the vector space of LLMs, historical concepts are encoded as points in multidimensional space. The relationships between historical events, figures, and concepts are captured in the distances and directions between these vectors. These semantic relationships reflect collective memory patterns from the training corpus."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "90GoVLlIzzb0"
+      },
+      "source": [
+        "## Collective Memory and LLMs"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "77zYNsdbzzb0"
+      },
+      "source": [
+        "- LLMs as repositories of digitized collective memory\n",
+        "- Training data selection as memory politics\n",
+        "- The \"averaged\" nature of AI-generated historical narratives\n",
+        "- Absence of contested memory in statistical consensus\n",
+        "\n",
+        "From a memory studies perspective, LLMs function as repositories of digitized collective memory. The selection of training data constitutes a form of memory politics, determining which historical perspectives are included or excluded. The statistical nature of these models produces \"averaged\" historical narratives that often elide contestation and complexity."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "BDuaGCSnzzb0"
+      },
+      "source": [
+        "# Part II: Methodological Approach"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "kmRnFRyxzzb1"
+      },
+      "source": [
+        "## The Challenge of Historical Prompt Identification"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "wgpMAiaYzzb1"
+      },
+      "source": [
+        "- Beyond simple keyword approaches\n",
+        "- Historical references: explicit vs. implicit\n",
+        "- Temporality in language\n",
+        "- Building a robust identification strategy"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "cHjGRP_Xzzb1"
+      },
+      "source": [
+        "Identifying prompts that reference history requires more sophisticated approaches than simple keyword matching. Historical references can be explicit (\"Napoleon Bonaparte\") or implicit (\"the Emperor's exile\"), and may involve complex temporal markers. Our methodology must capture this complexity."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "PrCaiB6xzzb1",
+        "outputId": "117d6fe6-6471-4c64-e895-be913cfab48c",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Python 3.11.12\n",
+            "Requirement already satisfied: umap-learn in /usr/local/lib/python3.11/dist-packages (0.5.7)\n",
+            "Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.11/dist-packages (from umap-learn) (1.26.4)\n",
+            "Requirement already satisfied: scipy>=1.3.1 in /usr/local/lib/python3.11/dist-packages (from umap-learn) (1.13.1)\n",
+            "Requirement already satisfied: scikit-learn>=0.22 in /usr/local/lib/python3.11/dist-packages (from umap-learn) (1.6.1)\n",
+            "Requirement already satisfied: numba>=0.51.2 in /usr/local/lib/python3.11/dist-packages (from umap-learn) (0.60.0)\n",
+            "Requirement already satisfied: pynndescent>=0.5 in /usr/local/lib/python3.11/dist-packages (from umap-learn) (0.5.13)\n",
+            "Requirement already satisfied: tqdm in /usr/local/lib/python3.11/dist-packages (from umap-learn) (4.67.1)\n",
+            "Requirement already satisfied: llvmlite<0.44,>=0.43.0dev0 in /usr/local/lib/python3.11/dist-packages (from numba>=0.51.2->umap-learn) (0.43.0)\n",
+            "Requirement already satisfied: joblib>=0.11 in /usr/local/lib/python3.11/dist-packages (from pynndescent>=0.5->umap-learn) (1.4.2)\n",
+            "Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn>=0.22->umap-learn) (3.6.0)\n",
+            "Requirement already satisfied: gensim in /usr/local/lib/python3.11/dist-packages (4.3.3)\n",
+            "Requirement already satisfied: numpy<2.0,>=1.18.5 in /usr/local/lib/python3.11/dist-packages (from gensim) (1.26.4)\n",
+            "Requirement already satisfied: scipy<1.14.0,>=1.7.0 in /usr/local/lib/python3.11/dist-packages (from gensim) (1.13.1)\n",
+            "Requirement already satisfied: smart-open>=1.8.1 in /usr/local/lib/python3.11/dist-packages (from gensim) (7.1.0)\n",
+            "Requirement already satisfied: wrapt in /usr/local/lib/python3.11/dist-packages (from smart-open>=1.8.1->gensim) (1.17.2)\n",
+            "Requirement already satisfied: nltk in /usr/local/lib/python3.11/dist-packages (3.9.1)\n",
+            "Requirement already satisfied: click in /usr/local/lib/python3.11/dist-packages (from nltk) (8.1.8)\n",
+            "Requirement already satisfied: joblib in /usr/local/lib/python3.11/dist-packages (from nltk) (1.4.2)\n",
+            "Requirement already satisfied: regex>=2021.8.3 in /usr/local/lib/python3.11/dist-packages (from nltk) (2024.11.6)\n",
+            "Requirement already satisfied: tqdm in /usr/local/lib/python3.11/dist-packages (from nltk) (4.67.1)\n",
+            "Requirement already satisfied: pandas in /usr/local/lib/python3.11/dist-packages (2.2.2)\n",
+            "Requirement already satisfied: numpy>=1.23.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (1.26.4)\n",
+            "Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (2.9.0.post0)\n",
+            "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.2)\n",
+            "Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.2)\n",
+            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)\n"
+          ]
+        }
+      ],
+      "source": [
+        "#We load the necessary libraries. If using colab, you might want to restart your kernel afterwards\n",
+        "\n",
+        "!python --version\n",
+        "!pip install umap-learn\n",
+        "!pip install gensim\n",
+        "!pip install nltk\n",
+        "!pip install pandas"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# we mount google drive. Skip if you're not using google drive\n",
+        "\n",
+        "from google.colab import drive\n",
+        "drive.mount('/content/drive')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3vtFna26EPTe",
+        "outputId": "d05f3874-d6be-4a64-fc3a-947b35b694a9"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(\"/content/drive\", force_remount=True).\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "kaKgggqHzzb2"
+      },
+      "source": [
+        "## Creating a Historical Prompt Dataset"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "id": "dX5tD0evzzb3",
+        "outputId": "e8c41167-e48f-42e8-c498-dc51f2870cd9",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data] Downloading package punkt to /root/nltk_data...\n",
+            "[nltk_data]   Package punkt is already up-to-date!\n",
+            "[nltk_data] Downloading package stopwords to /root/nltk_data...\n",
+            "[nltk_data]   Package stopwords is already up-to-date!\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Loading the libraries\n",
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "from gensim.models import Word2Vec\n",
+        "from gensim.models.phrases import Phrases, Phraser\n",
+        "import nltk\n",
+        "from nltk.tokenize import word_tokenize\n",
+        "from nltk.corpus import stopwords\n",
+        "import re\n",
+        "import ssl\n",
+        "\n",
+        "# Make sure you have the necessary NLTK resources\n",
+        "\n",
+        "try:\n",
+        "    _create_unverified_https_context = ssl._create_unverified_context\n",
+        "except AttributeError:\n",
+        "    pass\n",
+        "else:\n",
+        "    ssl._create_default_https_context = _create_unverified_https_context\n",
+        "\n",
+        "nltk.download('punkt')\n",
+        "nltk.download('stopwords')\n",
+        "\n",
+        "# Read the CSV file -- we load only 10 000 rows and the first column for this dataset of prompts.\n",
+        "prompts_df = pd.read_csv(\"drive/MyDrive/data/prompts.csv\", on_bad_lines='skip', nrows=1000, usecols=[0])\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "NWV0Mqlazzb3"
+      },
+      "source": [
+        "## Historical Reference Detection Approach With DistilBERT"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Set up the pipeline"
+      ],
+      "metadata": {
+        "id": "BWAtuQpchZ_W"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 4,
+      "metadata": {
+        "id": "i7kCiBnizzb3"
+      },
+      "outputs": [],
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "import torch\n",
+        "from sklearn.metrics.pairwise import cosine_similarity\n",
+        "import matplotlib.pyplot as plt\n",
+        "from umap import UMAP\n",
+        "from sklearn.cluster import DBSCAN\n",
+        "from tqdm import tqdm  # Pour les barres de progression\n",
+        "import gc  # Nettoyage de mémoire\n",
+        "import os\n",
+        "from sentence_transformers import SentenceTransformer\n",
+        "\n",
+        "# Définir le nombre de cœurs CPU à utiliser\n",
+        "num_cpu_cores = 8\n",
+        "torch.set_num_threads(num_cpu_cores)\n",
+        "os.environ[\"OMP_NUM_THREADS\"] = str(num_cpu_cores)\n",
+        "os.environ[\"MKL_NUM_THREADS\"] = str(num_cpu_cores)\n",
+        "\n",
+        "def improved_historical_identification(prompts_df, sample_size=1000):\n",
+        "    \"\"\"\n",
+        "    Version améliorée de l'identification des prompts historiques\n",
+        "    \"\"\"\n",
+        "    # Échantillonnage si nécessaire\n",
+        "    if len(prompts_df) > sample_size:\n",
+        "        sample_df = prompts_df.sample(sample_size, random_state=42)\n",
+        "        print(f\"Échantillonnage de {sample_size} prompts sur {len(prompts_df)} au total\")\n",
+        "    else:\n",
+        "        sample_df = prompts_df.copy()\n",
+        "        print(f\"Traitement de tous les {len(sample_df)} prompts\")\n",
+        "\n",
+        "    # Nettoyage mémoire\n",
+        "    gc.collect()\n",
+        "\n",
+        "    # Liste des prompts avec filtrage des valeurs non valides\n",
+        "    prompts_list = sample_df['prompt'].fillna('').tolist()\n",
+        "    valid_text_mask = [isinstance(text, str) and bool(text.strip()) for text in prompts_list]\n",
+        "    valid_prompts = [text for i, text in enumerate(prompts_list) if valid_text_mask[i]]\n",
+        "\n",
+        "    print(f\"Prompts valides : {len(valid_prompts)} sur {len(prompts_list)}\")\n",
+        "\n",
+        "    # Filtrer le DataFrame pour ne conserver que les lignes avec texte valide\n",
+        "    sample_df = sample_df[valid_text_mask].reset_index(drop=True)\n",
+        "\n",
+        "    # Génération des embeddings\n",
+        "    print(\"Génération des embeddings des prompts...\")\n",
+        "    print(\"Chargement du modèle SentenceTransformer...\")\n",
+        "    model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')\n",
+        "\n",
+        "    # Traitement par lots pour économiser la mémoire\n",
+        "    batch_size = 32\n",
+        "    prompt_embeddings = []\n",
+        "\n",
+        "    for i in tqdm(range(0, len(valid_prompts), batch_size), desc=\"Génération des embeddings\"):\n",
+        "        batch = valid_prompts[i:i+batch_size]\n",
+        "        batch_embeddings = model.encode(batch, show_progress_bar=False)\n",
+        "        prompt_embeddings.append(batch_embeddings)\n",
+        "\n",
+        "    prompt_embeddings = np.vstack(prompt_embeddings)\n",
+        "\n",
+        "    # Vérifier que la longueur correspond\n",
+        "    assert len(sample_df) == prompt_embeddings.shape[0], \"Incohérence entre la longueur du DataFrame et des embeddings\"\n",
+        "\n",
+        "    # Définir des concepts historiques plus diversifiés\n",
+        "    historical_concepts = [\n",
+        "        # Périodes historiques explicites\n",
+        "        \"ancient history\", \"medieval times\", \"renaissance period\",\n",
+        "        \"world war\", \"cold war\", \"industrial revolution\", \"prehistoric era\",\n",
+        "\n",
+        "        # Termes plus généraux et implicites\n",
+        "        \"history\", \"historical event\", \"in the past\", \"ancient times\",\n",
+        "        \"vintage\", \"retro\", \"old fashioned\", \"traditional\",\n",
+        "\n",
+        "        # Styles et esthétiques historiques\n",
+        "        \"victorian style\", \"art deco\", \"baroque\", \"gothic\", \"classical\",\n",
+        "        \"midcentury\", \"ancient greek\", \"roman empire\", \"medieval knight\",\n",
+        "\n",
+        "        # Références à la culture populaire historique\n",
+        "        \"steampunk\", \"dieselpunk\", \"historical fiction\", \"period drama\",\n",
+        "        \"historical costume\", \"historical setting\"\n",
+        "    ]\n",
+        "\n",
+        "    # Générer des embeddings pour les concepts historiques\n",
+        "    print(\"Génération des embeddings de concepts historiques...\")\n",
+        "    historical_embeddings = model.encode(historical_concepts)\n",
+        "\n",
+        "    # Nettoyer la mémoire\n",
+        "    gc.collect()\n",
+        "\n",
+        "    # Calculer la similarité pour chaque concept\n",
+        "    print(\"Calcul des similarités...\")\n",
+        "    concept_similarities = np.zeros((len(valid_prompts), len(historical_concepts)))\n",
+        "\n",
+        "    for i in tqdm(range(0, len(valid_prompts), batch_size), desc=\"Calcul par lots\"):\n",
+        "        end_idx = min(i + batch_size, len(valid_prompts))\n",
+        "        batch_embeddings = prompt_embeddings[i:end_idx]\n",
+        "\n",
+        "        for j in range(len(historical_concepts)):\n",
+        "            concept_similarities[i:end_idx, j] = cosine_similarity(\n",
+        "                batch_embeddings,\n",
+        "                historical_embeddings[j].reshape(1, -1)\n",
+        "            ).flatten()\n",
+        "\n",
+        "    # Pour chaque prompt, trouver le concept le plus similaire\n",
+        "    max_similarity_indices = np.argmax(concept_similarities, axis=1)\n",
+        "    max_similarities = np.max(concept_similarities, axis=1)\n",
+        "\n",
+        "    # Attribuer des seuils différents selon les catégories de concepts\n",
+        "    concept_thresholds = {\n",
+        "        # Seuils plus élevés pour termes explicites\n",
+        "        \"ancient history\": 0.5,\n",
+        "        \"medieval times\": 0.5,\n",
+        "        \"renaissance period\": 0.5,\n",
+        "        \"world war\": 0.5,\n",
+        "        \"cold war\": 0.5,\n",
+        "        \"industrial revolution\": 0.5,\n",
+        "\n",
+        "        # Seuils plus bas pour termes implicites ou généraux\n",
+        "        \"history\": 0.45,\n",
+        "        \"historical event\": 0.45,\n",
+        "        \"in the past\": 0.4,\n",
+        "        \"ancient times\": 0.45,\n",
+        "\n",
+        "        # Seuils intermédiaires pour styles\n",
+        "        \"victorian style\": 0.48,\n",
+        "        \"art deco\": 0.48,\n",
+        "        \"baroque\": 0.48,\n",
+        "    }\n",
+        "\n",
+        "    # Seuil par défaut pour les concepts non listés spécifiquement\n",
+        "    default_threshold = 0.45\n",
+        "\n",
+        "    # Vérifier si chaque prompt dépasse le seuil pour son concept le plus similaire\n",
+        "    is_historical = []\n",
+        "    for i, (max_sim, concept_idx) in enumerate(zip(max_similarities, max_similarity_indices)):\n",
+        "        concept = historical_concepts[concept_idx]\n",
+        "        threshold = concept_thresholds.get(concept, default_threshold)\n",
+        "        is_historical.append(max_sim > threshold)\n",
+        "\n",
+        "    # Convertir en array numpy pour faciliter l'indexation\n",
+        "    is_historical = np.array(is_historical)\n",
+        "\n",
+        "    # Ajouter les résultats au DataFrame\n",
+        "    sample_df['most_similar_concept'] = [historical_concepts[idx] for idx in max_similarity_indices]\n",
+        "    sample_df['similarity_score'] = max_similarities\n",
+        "    sample_df['is_historical'] = is_historical\n",
+        "\n",
+        "    # Filtrer les prompts historiques\n",
+        "    historical_prompts = sample_df[is_historical].copy()\n",
+        "\n",
+        "    print(f\"Identification de {len(historical_prompts)} prompts historiques ({len(historical_prompts)/len(sample_df):.2%} de l'échantillon)\")\n",
+        "\n",
+        "    # Méthode hybride - combiner embeddings et mots-clés pour améliorer la couverture\n",
+        "    keywords = [\n",
+        "        \"history\", \"ancient\", \"medieval\", \"renaissance\", \"century\",\n",
+        "        \"war\", \"empire\", \"kingdom\", \"historical\", \"vintage\", \"retro\",\n",
+        "        \"traditional\", \"old\", \"classical\", \"antique\"\n",
+        "    ]\n",
+        "\n",
+        "    keyword_mask = sample_df['prompt'].fillna('').str.lower().str.contains('|'.join(keywords))\n",
+        "    missed_by_embedding = sample_df[~is_historical & keyword_mask].copy()\n",
+        "    missed_by_embedding['detection_method'] = 'keyword_only'\n",
+        "\n",
+        "    # Ajouter un marqueur pour les prompts détectés par embedding\n",
+        "    historical_prompts['detection_method'] = 'embedding'\n",
+        "\n",
+        "    # Fusionner les deux ensembles\n",
+        "    combined_historical = pd.concat([historical_prompts, missed_by_embedding], ignore_index=True)\n",
+        "\n",
+        "    print(f\"Identification supplémentaire de {len(missed_by_embedding)} prompts par mots-clés\")\n",
+        "    print(f\"Total de prompts historiques: {len(combined_historical)} ({len(combined_historical)/len(sample_df):.2%} de l'échantillon)\")\n",
+        "\n",
+        "    return combined_historical, prompt_embeddings, is_historical\n",
+        "\n",
+        "def analyze_historical_clusters(historical_prompts, prompt_embeddings, is_historical):\n",
+        "    \"\"\"\n",
+        "    Version adaptée pour fonctionner avec la nouvelle méthode d'identification\n",
+        "    \"\"\"\n",
+        "    if len(historical_prompts) > 10:  # Besoin d'un minimum d'échantillons pour le clustering\n",
+        "        # Sélectionner les embeddings des prompts historiques identifiés par embedding\n",
+        "        embedding_historical = historical_prompts[historical_prompts['detection_method'] == 'embedding']\n",
+        "\n",
+        "        # Créer un masque pour extraire les embeddings appropriés\n",
+        "        # Note: Cette approche suppose que les indices des historical_prompts correspondent\n",
+        "        # aux indices filtrés dans prompt_embeddings\n",
+        "        historical_indices = embedding_historical.index\n",
+        "        historical_embeddings = prompt_embeddings[historical_indices]\n",
+        "\n",
+        "        print(\"Application de la réduction dimensionnelle UMAP...\")\n",
+        "        # Appliquer UMAP avec optimisation CPU\n",
+        "        umap_model = UMAP(n_neighbors=15, min_dist=0.1, random_state=42,\n",
+        "                          n_jobs=num_cpu_cores)\n",
+        "        historical_umap = umap_model.fit_transform(historical_embeddings)\n",
+        "\n",
+        "        print(\"Clustering avec DBSCAN...\")\n",
+        "        # Appliquer DBSCAN\n",
+        "        dbscan = DBSCAN(eps=0.5, min_samples=5, n_jobs=num_cpu_cores)\n",
+        "        cluster_labels = dbscan.fit_predict(historical_umap)\n",
+        "\n",
+        "        # Ajouter les étiquettes de cluster au DataFrame, uniquement pour les prompts détectés par embedding\n",
+        "        # Initialiser une colonne de cluster avec des valeurs NaN\n",
+        "        historical_prompts['cluster'] = float('nan')\n",
+        "\n",
+        "        # Mettre à jour les valeurs de cluster pour les prompts détectés par embedding\n",
+        "        idx_map = {old_idx: new_idx for new_idx, old_idx in enumerate(historical_indices)}\n",
+        "        for i, idx in enumerate(historical_indices):\n",
+        "            historical_prompts.loc[idx, 'cluster'] = cluster_labels[i]\n",
+        "\n",
+        "        # Générer rapport et visualisations, uniquement pour les prompts avec clusters\n",
+        "        generate_cluster_report(embedding_historical, historical_umap, cluster_labels)\n",
+        "\n",
+        "        return historical_prompts, historical_umap, cluster_labels\n",
+        "    else:\n",
+        "        print(\"Pas assez de prompts historiques pour le clustering\")\n",
+        "        return historical_prompts, None, None\n",
+        "\n",
+        "def generate_cluster_report(historical_prompts, historical_umap, cluster_labels):\n",
+        "    # Nombre de prompts par cluster\n",
+        "    cluster_counts = pd.Series(cluster_labels).value_counts().sort_index()\n",
+        "    print(\"\\nNombre de prompts par cluster:\")\n",
+        "    print(cluster_counts)\n",
+        "\n",
+        "    # Visualiser les clusters\n",
+        "    plt.figure(figsize=(12, 10))\n",
+        "    # Exclure les points de bruit (cluster -1) pour une meilleure visualisation\n",
+        "    non_noise_mask = cluster_labels != -1\n",
+        "\n",
+        "    if np.any(non_noise_mask):  # Vérifier qu'il y a des points non-bruit\n",
+        "        scatter = plt.scatter(\n",
+        "            historical_umap[non_noise_mask, 0],\n",
+        "            historical_umap[non_noise_mask, 1],\n",
+        "            c=cluster_labels[non_noise_mask],\n",
+        "            cmap='tab20',\n",
+        "            alpha=0.6,\n",
+        "            s=10\n",
+        "        )\n",
+        "        plt.colorbar(scatter, label='Cluster')\n",
+        "    else:\n",
+        "        # S'il n'y a que des points de bruit, tous les afficher\n",
+        "        plt.scatter(\n",
+        "            historical_umap[:, 0],\n",
+        "            historical_umap[:, 1],\n",
+        "            c='gray',\n",
+        "            alpha=0.3,\n",
+        "            s=5\n",
+        "        )\n",
+        "\n",
+        "    plt.title('Clusters des Prompts Historiques (méthode améliorée)')\n",
+        "    plt.xlabel('UMAP Dimension 1')\n",
+        "    plt.ylabel('UMAP Dimension 2')\n",
+        "    plt.savefig('historical_prompt_clusters_improved.png', dpi=300, bbox_inches='tight')\n",
+        "    plt.close()  # Fermer la figure pour libérer la mémoire\n",
+        "\n",
+        "    # Exemples de prompts de chaque cluster\n",
+        "    print(\"\\nExemples de prompts par cluster:\")\n",
+        "    for cluster_id in sorted(set([label for label in cluster_labels if label != -1])):\n",
+        "        # Créer un masque pour ce cluster\n",
+        "        cluster_mask = cluster_labels == cluster_id\n",
+        "\n",
+        "        # Trouver les indices correspondants dans historical_prompts\n",
+        "        cluster_indices = np.where(cluster_mask)[0]\n",
+        "\n",
+        "        # Récupérer les lignes correspondantes\n",
+        "        if len(cluster_indices) > 0:\n",
+        "            # Échantillonner jusqu'à 5 prompts de ce cluster\n",
+        "            sample_indices = np.random.choice(cluster_indices, min(5, len(cluster_indices)), replace=False)\n",
+        "\n",
+        "            print(f\"\\nCluster {cluster_id} ({len(cluster_indices)} prompts):\")\n",
+        "\n",
+        "            for idx in sample_indices:\n",
+        "                row_idx = historical_prompts.index[idx]\n",
+        "                row = historical_prompts.loc[row_idx]\n",
+        "                print(f\"  - {row['prompt'][:100]}... (Similarité: {row['similarity_score']:.2f}, Concept: {row['most_similar_concept']})\")\n",
+        "\n",
+        "# Fonction principale pour exécuter l'ensemble du pipeline\n",
+        "def run_historical_prompt_analysis(prompts_df, sample_size=1000):\n",
+        "    # Identification des prompts historiques avec la méthode améliorée\n",
+        "    historical_prompts, prompt_embeddings, is_historical = improved_historical_identification(prompts_df, sample_size)\n",
+        "\n",
+        "    # Analyse de clusters sur les prompts historiques identifiés\n",
+        "    historical_prompts_clustered, umap_result, cluster_labels = analyze_historical_clusters(\n",
+        "        historical_prompts, prompt_embeddings, is_historical)\n",
+        "\n",
+        "    return historical_prompts_clustered, umap_result, cluster_labels\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Run the pipline"
+      ],
+      "metadata": {
+        "id": "dSUX_ZVphfsW"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Exemple d'utilisation\n",
+        "if __name__ == \"__main__\":\n",
+        "    # Charger les données (à adapter selon votre source de données)\n",
+        "    #prompts_file = \"data/prompts.csv\"  # Chemin vers le fichier de prompts\n",
+        "    #prompts_df = pd.read_csv(prompts_file)\n",
+        "\n",
+        "    # Exécuter l'analyse\n",
+        "    results = run_historical_prompt_analysis(prompts_df)\n",
+        "\n",
+        "    print(\"Analyse terminée avec succès!\")"
+      ],
+      "metadata": {
+        "id": "YkAkm77RHuQq",
+        "outputId": "e707a90f-2274-4690-ef22-9ab597452695",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Traitement de tous les 1000 prompts\n",
+            "Prompts valides : 987 sur 1000\n",
+            "Génération des embeddings des prompts...\n",
+            "Chargement du modèle SentenceTransformer...\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/usr/local/lib/python3.11/dist-packages/huggingface_hub/utils/_auth.py:94: UserWarning: \n",
+            "The secret `HF_TOKEN` does not exist in your Colab secrets.\n",
+            "To authenticate with the Hugging Face Hub, create a token in your settings tab (https://huggingface.co/settings/tokens), set it as secret in your Google Colab and restart your session.\n",
+            "You will be able to reuse this secret in all of your notebooks.\n",
+            "Please note that authentication is recommended but still optional to access public models or datasets.\n",
+            "  warnings.warn(\n",
+            "Génération des embeddings: 100%|██████████| 31/31 [06:19<00:00, 12.24s/it]\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Génération des embeddings de concepts historiques...\n",
+            "Calcul des similarités...\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "Calcul par lots: 100%|██████████| 31/31 [00:00<00:00, 36.27it/s]\n",
+            "/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.\n",
+            "  warnings.warn(\n",
+            "/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.\n",
+            "  warn(\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Identification de 73 prompts historiques (7.40% de l'échantillon)\n",
+            "Identification supplémentaire de 163 prompts par mots-clés\n",
+            "Total de prompts historiques: 236 (23.91% de l'échantillon)\n",
+            "Application de la réduction dimensionnelle UMAP...\n",
+            "Clustering avec DBSCAN...\n",
+            "\n",
+            "Nombre de prompts par cluster:\n",
+            "-1    16\n",
+            " 0    13\n",
+            " 1     7\n",
+            " 2    16\n",
+            " 3     6\n",
+            " 4     8\n",
+            " 5     7\n",
+            "Name: count, dtype: int64\n",
+            "\n",
+            "Exemples de prompts par cluster:\n",
+            "\n",
+            "Cluster 0 (13 prompts):\n",
+            "  - a godlike and indomitable helmeted , masked and armored samurai .samurai temple and Rising sun in ba... (Similarité: 0.48, Concept: historical costume)\n",
+            "  - Slumpunk Cyberpunk City from street view by Dylan Cole , unreal 5, hyperrealistic, realistic, photor... (Similarité: 0.53, Concept: dieselpunk)\n",
+            "  - king legends knight warrior helmet skyrim mask elder scrolls v nordic armor bethesda adam adamowicz ... (Similarité: 0.54, Concept: historical costume)\n",
+            "  - Greg Manchess portrait painting of Michelangelo of TMNT as Overwatch character, medium shot, asymmet... (Similarité: 0.51, Concept: art deco)\n",
+            "  - fully body fashion model beautiful emma watson wearing military armor long dark hair beautiful bone ... (Similarité: 0.48, Concept: historical costume)\n",
+            "\n",
+            "Cluster 1 (7 prompts):\n",
+            "  - hyperrealism close - up mythological portrait of a medieval woman's shattered face partially made of... (Similarité: 0.48, Concept: historical costume)\n",
+            "  - german super soldier, symmetrical portrait scifi, power armor, patriotic american usa storm trooper ... (Similarité: 0.49, Concept: historical costume)\n",
+            "  - art portrait of an undead ghost in the shell, intricate detailed armour ,8k,by tristan eaton,Stanley... (Similarité: 0.46, Concept: historical costume)\n",
+            "  - realistic detailed face portrait of a Ghostly Gothic Marie Antoinette by Alphonse Mucha, Ayami Kojim... (Similarité: 0.54, Concept: historical costume)\n",
+            "  - Portrait of Azula wearing skintight black leather armor, Avatar the Last Airbender, Dungeons and Dra... (Similarité: 0.51, Concept: historical costume)\n",
+            "\n",
+            "Cluster 2 (16 prompts):\n",
+            "  - goth woman in a moonlight view, in a forest, a river, tankoban, 4 k, tone mapping, akihiko yoshida, ... (Similarité: 0.50, Concept: gothic)\n",
+            "  - portraits of art deco skyscrapers taking with a drone, 4k, digital art, photorealism, trending on ar... (Similarité: 0.60, Concept: art deco)\n",
+            "  - The Great Wall, stars and Paisley-filled skies, art workstations, intricate, highly detailed, digita... (Similarité: 0.48, Concept: art deco)\n",
+            "  - knight riding a horse by frank frazetta, dynamic pose, chiaroscuro, fantasy, very detailed, dungeons... (Similarité: 0.53, Concept: medieval knight)\n",
+            "  - playboi carti in steampunk style digital art 4 k the detailed super realistic... (Similarité: 0.47, Concept: steampunk)\n",
+            "\n",
+            "Cluster 3 (6 prompts):\n",
+            "  - The British royal family as the Addams family... (Similarité: 0.47, Concept: period drama)\n",
+            "  - a hyperrealistic painting of a beautiful woman posing with demons by Joe Fenton,... (Similarité: 0.51, Concept: art deco)\n",
+            "  - digital illustration closeup portrait of cyberpunk samurai in city street at night by makoto shinkai... (Similarité: 0.46, Concept: dieselpunk)\n",
+            "  - behance winner colorful deco art detailed skeuomorphic very detailed portrait by olbinski airbrush u... (Similarité: 0.63, Concept: art deco)\n",
+            "  - closeup painting of a very beautiful young mexican cyberpunk woman with a smirk, light blue retro sl... (Similarité: 0.47, Concept: steampunk)\n",
+            "\n",
+            "Cluster 4 (8 prompts):\n",
+            "  - 'nature painting of a fractured forest, trending on ArtStation. Extremely detailed and intricate art... (Similarité: 0.52, Concept: art deco)\n",
+            "  - figurine of luffy wearing an elegant summer blouse, personification, official store photo, commercia... (Similarité: 0.47, Concept: historical costume)\n",
+            "  - head and shoulders portrait of a armored female paladin portrayed by young carrie fisher, d & d, fan... (Similarité: 0.51, Concept: historical costume)\n",
+            "  - white turban and shoulder pads with cape wearing john paul ii as piccolo from dragon ball z by claud... (Similarité: 0.56, Concept: historical costume)\n",
+            "  - Lovecraftian horror, gorgeous, portrait, powerful, intricate, beautiful, masterpiece, elegant, volum... (Similarité: 0.48, Concept: art deco)\n",
+            "\n",
+            "Cluster 5 (7 prompts):\n",
+            "  - The most ornate thing possible... (Similarité: 0.46, Concept: historical costume)\n",
+            "  - portrait ultra dimensional vin diesel entity, accidentally tripping on dmt and acid, psychedelic exp... (Similarité: 0.50, Concept: dieselpunk)\n",
+            "  - high quality high detail painting by lucian freud and jenny saville, hd, golden eal, turquoise... (Similarité: 0.49, Concept: art deco)\n",
+            "  - maura allen art... (Similarité: 0.50, Concept: art deco)\n",
+            "  - hyperrealism oil painting, close-up portrait of medieval euopean fashion model, knight, steel gradie... (Similarité: 0.50, Concept: historical costume)\n",
+            "Analyse terminée avec succès!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Exécuter l'analyse et utiliser directement le résultat\n",
+        "results, _, _ = run_historical_prompt_analysis(prompts_df)\n",
+        "\n",
+        "# Exporter avec les résultats\n",
+        "summary = export_clusters_to_csv(results)\n",
+        "\n",
+        "%whos\n"
+      ],
+      "metadata": {
+        "id": "_7XLC0h-AQQR",
+        "outputId": "5d4c74c7-728c-47b7-f667-9c25a10954b5",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Traitement de tous les 1000 prompts\n",
+            "Prompts valides : 987 sur 1000\n",
+            "Génération des embeddings des prompts...\n",
+            "Chargement du modèle SentenceTransformer...\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "Génération des embeddings: 100%|██████████| 31/31 [06:23<00:00, 12.38s/it]\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Génération des embeddings de concepts historiques...\n",
+            "Calcul des similarités...\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "Calcul par lots: 100%|██████████| 31/31 [00:00<00:00, 38.19it/s]\n",
+            "/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.\n",
+            "  warnings.warn(\n",
+            "/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.\n",
+            "  warn(\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Identification de 73 prompts historiques (7.40% de l'échantillon)\n",
+            "Identification supplémentaire de 163 prompts par mots-clés\n",
+            "Total de prompts historiques: 236 (23.91% de l'échantillon)\n",
+            "Application de la réduction dimensionnelle UMAP...\n",
+            "Clustering avec DBSCAN...\n",
+            "\n",
+            "Nombre de prompts par cluster:\n",
+            "-1    16\n",
+            " 0    13\n",
+            " 1     7\n",
+            " 2    16\n",
+            " 3     6\n",
+            " 4     8\n",
+            " 5     7\n",
+            "Name: count, dtype: int64\n",
+            "\n",
+            "Exemples de prompts par cluster:\n",
+            "\n",
+            "Cluster 0 (13 prompts):\n",
+            "  - Maria evades sgt rhodes. Cyberpunk hacker escaping Menacing Cyberpunk police trooper wearing a comba... (Similarité: 0.47, Concept: steampunk)\n",
+            "  - a godlike and indomitable helmeted , masked and armored samurai .samurai temple and Rising sun in ba... (Similarité: 0.48, Concept: historical costume)\n",
+            "  - in the foreground a street of Saint Petersburg, in the background a blond woman spitting flames with... (Similarité: 0.46, Concept: steampunk)\n",
+            "  - fully body fashion model beautiful emma watson wearing military armor long dark hair beautiful bone ... (Similarité: 0.48, Concept: historical costume)\n",
+            "  - realistic detailed face portrait of a beautiful futuristic viking warrior in alien cyberpunk armor b... (Similarité: 0.50, Concept: historical costume)\n",
+            "\n",
+            "Cluster 1 (7 prompts):\n",
+            "  - Portrait of Azula wearing skintight black leather armor, Avatar the Last Airbender, Dungeons and Dra... (Similarité: 0.51, Concept: historical costume)\n",
+            "  - art portrait of an undead ghost in the shell, intricate detailed armour ,8k,by tristan eaton,Stanley... (Similarité: 0.46, Concept: historical costume)\n",
+            "  - realistic detailed face portrait of a Ghostly Gothic Marie Antoinette by Alphonse Mucha, Ayami Kojim... (Similarité: 0.54, Concept: historical costume)\n",
+            "  - closeup, giant flower head, girl in desert, surreal photography, wind and cold, dramatic sky, impres... (Similarité: 0.51, Concept: art deco)\n",
+            "  - portrait of of young beautiful female princess, d & d, centered face, gothic dress, elegant, shiny l... (Similarité: 0.49, Concept: historical costume)\n",
+            "\n",
+            "Cluster 2 (16 prompts):\n",
+            "  - portrait Anime girl in cyberpunk armor, cute-fine-face, white-hair pretty face, realistic shaded Per... (Similarité: 0.48, Concept: steampunk)\n",
+            "  - portraits of art deco skyscrapers taking with a drone, 4k, digital art, photorealism, trending on ar... (Similarité: 0.60, Concept: art deco)\n",
+            "  - 🌉🛶🗡️🇮🇸🏴󠁧󠁢󠁷󠁬󠁳󠁿🇲🇷🌌👻, Michael Whelan, digital art, felix Kelly, Alan Lee, Darrell K Sweet, artstation, ... (Similarité: 0.52, Concept: art deco)\n",
+            "  - attractive muscular male with armor and clothes, tang dynasty, character design, colorful paint, swe... (Similarité: 0.48, Concept: historical costume)\n",
+            "  - game asset full - body portrait surreal colorful clay artstation rpg flower anatomy concept art, clo... (Similarité: 0.51, Concept: art deco)\n",
+            "\n",
+            "Cluster 3 (6 prompts):\n",
+            "  - behance winner colorful deco art detailed skeuomorphic very detailed portrait by olbinski airbrush u... (Similarité: 0.63, Concept: art deco)\n",
+            "  - The British royal family as the Addams family... (Similarité: 0.47, Concept: period drama)\n",
+            "  - a hyperrealistic painting of a beautiful woman posing with demons by Joe Fenton,... (Similarité: 0.51, Concept: art deco)\n",
+            "  - closeup painting of a very beautiful young mexican cyberpunk woman with a smirk, light blue retro sl... (Similarité: 0.47, Concept: steampunk)\n",
+            "  - digital illustration closeup portrait of cyberpunk samurai in city street at night by makoto shinkai... (Similarité: 0.46, Concept: dieselpunk)\n",
+            "\n",
+            "Cluster 4 (8 prompts):\n",
+            "  - white turban and shoulder pads with cape wearing john paul ii as piccolo from dragon ball z by claud... (Similarité: 0.56, Concept: historical costume)\n",
+            "  - 'nature painting of a fractured forest, trending on ArtStation. Extremely detailed and intricate art... (Similarité: 0.52, Concept: art deco)\n",
+            "  - figurine of luffy wearing an elegant summer blouse, personification, official store photo, commercia... (Similarité: 0.47, Concept: historical costume)\n",
+            "  - head and shoulders portrait of a armored female paladin portrayed by young carrie fisher, d & d, fan... (Similarité: 0.51, Concept: historical costume)\n",
+            "  - noble armor, medieval fantasy concept art, trending on artstation, shiny silver with gold trim, flat... (Similarité: 0.54, Concept: medieval knight)\n",
+            "\n",
+            "Cluster 5 (7 prompts):\n",
+            "  - hyperrealism oil painting, close-up portrait of medieval euopean fashion model, knight, steel gradie... (Similarité: 0.50, Concept: historical costume)\n",
+            "  - high quality high detail painting by lucian freud and jenny saville, hd, golden eal, turquoise... (Similarité: 0.49, Concept: art deco)\n",
+            "  - portrait ultra dimensional vin diesel entity, accidentally tripping on dmt and acid, psychedelic exp... (Similarité: 0.50, Concept: dieselpunk)\n",
+            "  - The most ornate thing possible... (Similarité: 0.46, Concept: historical costume)\n",
+            "  - x - ray architecture installation, art exhibition, biennale, museum, vr, virtual, 4 k, 4 d... (Similarité: 0.50, Concept: art deco)\n",
+            "Répertoire créé: cluster_exports\n",
+            "Résumé des clusters enregistré dans cluster_exports/all_clusters_summary.csv\n",
+            "Cluster 0 (historical costume, 13 prompts) enregistré dans cluster_00_historical_costume_13_prompts.csv\n",
+            "Cluster 1 (historical costume, 7 prompts) enregistré dans cluster_01_historical_costume_7_prompts.csv\n",
+            "Points de bruit (16) enregistrés dans cluster_exports/noise_points.csv\n",
+            "Cluster 2 (art deco, 16 prompts) enregistré dans cluster_02_art_deco_16_prompts.csv\n",
+            "Cluster 4 (historical costume, 8 prompts) enregistré dans cluster_04_historical_costume_8_prompts.csv\n",
+            "Cluster 3 (art deco, 6 prompts) enregistré dans cluster_03_art_deco_6_prompts.csv\n",
+            "Cluster 5 (historical costume, 7 prompts) enregistré dans cluster_05_historical_costume_7_prompts.csv\n",
+            "Prompts détectés par mots-clés uniquement (163) enregistrés dans cluster_exports/keyword_only_prompts.csv\n",
+            "Explorateur HTML créé: cluster_exports/cluster_explorer.html\n",
+            "Variable                             Type                Data/Info\n",
+            "------------------------------------------------------------------\n",
+            "DBSCAN                               type                <class 'sklearn.cluster._dbscan.DBSCAN'>\n",
+            "Phraser                              type                <class 'gensim.models.phrases.FrozenPhrases'>\n",
+            "Phrases                              type                <class 'gensim.models.phrases.Phrases'>\n",
+            "SentenceTransformer                  type                <class 'sentence_transfor<...>mer.SentenceTransformer'>\n",
+            "UMAP                                 type                <class 'umap.umap_.UMAP'>\n",
+            "Word2Vec                             type                <class 'gensim.models.word2vec.Word2Vec'>\n",
+            "analyze_historical_clusters          function            <function analyze_histori<...>usters at 0x7e732f41ba60>\n",
+            "cosine_similarity                    function            <function cosine_similarity at 0x7e74658d9e40>\n",
+            "create_html_explorer                 function            <function create_html_explorer at 0x7e7315026980>\n",
+            "drive                                module              <module 'google.colab.dri<...>s/google/colab/drive.py'>\n",
+            "export_clusters_to_csv               function            <function export_clusters<...>to_csv at 0x7e7315027880>\n",
+            "gc                                   module              <module 'gc' (built-in)>\n",
+            "generate_cluster_report              function            <function generate_cluste<...>report at 0x7e732e9e68e0>\n",
+            "improved_historical_identification   function            <function improved_histor<...>cation at 0x7e733144fba0>\n",
+            "nltk                                 module              <module 'nltk' from '/usr<...>ckages/nltk/__init__.py'>\n",
+            "np                                   module              <module 'numpy' from '/us<...>kages/numpy/__init__.py'>\n",
+            "num_cpu_cores                        int                 8\n",
+            "os                                   module              <module 'os' (frozen)>\n",
+            "pd                                   module              <module 'pandas' from '/u<...>ages/pandas/__init__.py'>\n",
+            "plt                                  module              <module 'matplotlib.pyplo<...>es/matplotlib/pyplot.py'>\n",
+            "prompts_df                           DataFrame                                    <...>\\n[1000 rows x 1 columns]\n",
+            "re                                   module              <module 're' from '/usr/l<...>thon3.11/re/__init__.py'>\n",
+            "results                              DataFrame                                    <...>n\\n[236 rows x 6 columns]\n",
+            "run_historical_prompt_analysis       function            <function run_historical_<...>alysis at 0x7e732e9e6a20>\n",
+            "ssl                                  module              <module 'ssl' from '/usr/lib/python3.11/ssl.py'>\n",
+            "stopwords                            LazyCorpusLoader    <WordListCorpusReader in <...>pwords' (not loaded yet)>\n",
+            "summary                              DataFrame              cluster  prompt_count <...>ainting by lucian fr...  \n",
+            "torch                                module              <module 'torch' from '/us<...>kages/torch/__init__.py'>\n",
+            "tqdm                                 type                <class 'tqdm.std.tqdm'>\n",
+            "word_tokenize                        function            <function word_tokenize at 0x7e746699b380>\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "<ipython-input-6-5b4745c235c6>:50: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n",
+            "  sample_prompts = clustered_prompts.groupby('cluster').apply(get_sample_prompts).reset_index()\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def export_clusters_to_csv(historical_prompts, output_dir=\"cluster_exports\"):\n",
+        "    \"\"\"\n",
+        "    Exporte les prompts regroupés par cluster dans des fichiers CSV distincts.\n",
+        "    Chaque fichier contient les prompts, scores de similarité et concepts associés.\n",
+        "\n",
+        "    Parameters:\n",
+        "    -----------\n",
+        "    historical_prompts : pandas.DataFrame\n",
+        "        DataFrame contenant les prompts historiques avec les colonnes:\n",
+        "        - prompt: texte du prompt\n",
+        "        - similarity_score: score de similarité\n",
+        "        - most_similar_concept: concept historique le plus similaire\n",
+        "        - cluster: étiquette de cluster (-1 pour les points de bruit)\n",
+        "        - detection_method: méthode ayant détecté le prompt (embedding ou keyword_only)\n",
+        "\n",
+        "    output_dir : str\n",
+        "        Répertoire de sortie pour les fichiers CSV\n",
+        "    \"\"\"\n",
+        "    # Créer le répertoire de sortie s'il n'existe pas\n",
+        "    import os\n",
+        "    if not os.path.exists(output_dir):\n",
+        "        os.makedirs(output_dir)\n",
+        "        print(f\"Répertoire créé: {output_dir}\")\n",
+        "\n",
+        "    # Extraire les prompts avec clusters valides (détection par embedding)\n",
+        "    clustered_prompts = historical_prompts[historical_prompts['cluster'].notna()].copy()\n",
+        "\n",
+        "    # Ajouter une version tronquée du prompt pour la prévisualisation\n",
+        "    clustered_prompts['prompt_preview'] = clustered_prompts['prompt'].apply(\n",
+        "        lambda x: x[:100] + '...' if len(x) > 100 else x\n",
+        "    )\n",
+        "\n",
+        "    # Créer un fichier récapitulatif pour tous les clusters\n",
+        "    summary_file = os.path.join(output_dir, \"all_clusters_summary.csv\")\n",
+        "    clusters_summary = clustered_prompts.groupby('cluster').agg(\n",
+        "        prompt_count=('prompt', 'count'),\n",
+        "        avg_similarity=('similarity_score', 'mean'),\n",
+        "        top_concepts=('most_similar_concept', lambda x: x.value_counts().index[0] if len(x) > 0 else 'N/A'),\n",
+        "        min_similarity=('similarity_score', 'min'),\n",
+        "        max_similarity=('similarity_score', 'max')\n",
+        "    ).reset_index()\n",
+        "\n",
+        "    # Ajouter des exemples de prompts au résumé (3 exemples par cluster)\n",
+        "    def get_sample_prompts(group):\n",
+        "        if len(group) <= 3:\n",
+        "            return '; '.join(group['prompt_preview'].tolist())\n",
+        "        else:\n",
+        "            return '; '.join(group.sample(3)['prompt_preview'].tolist())\n",
+        "\n",
+        "    sample_prompts = clustered_prompts.groupby('cluster').apply(get_sample_prompts).reset_index()\n",
+        "    sample_prompts.columns = ['cluster', 'sample_prompts']\n",
+        "    clusters_summary = pd.merge(clusters_summary, sample_prompts, on='cluster')\n",
+        "\n",
+        "    # Enregistrer le résumé\n",
+        "    clusters_summary.to_csv(summary_file, index=False, encoding='utf-8')\n",
+        "    print(f\"Résumé des clusters enregistré dans {summary_file}\")\n",
+        "\n",
+        "    # Exporter chaque cluster vers un fichier CSV distinct\n",
+        "    unique_clusters = clustered_prompts['cluster'].unique()\n",
+        "\n",
+        "    for cluster_id in unique_clusters:\n",
+        "        # Ignorer les points de bruit pour l'exportation individuelle\n",
+        "        if cluster_id == -1:\n",
+        "            noise_file = os.path.join(output_dir, \"noise_points.csv\")\n",
+        "            noise_prompts = clustered_prompts[clustered_prompts['cluster'] == -1]\n",
+        "            if not noise_prompts.empty:\n",
+        "                noise_prompts.to_csv(noise_file, index=False, encoding='utf-8')\n",
+        "                print(f\"Points de bruit ({len(noise_prompts)}) enregistrés dans {noise_file}\")\n",
+        "            continue\n",
+        "\n",
+        "        # Filtrer les prompts de ce cluster\n",
+        "        cluster_df = clustered_prompts[clustered_prompts['cluster'] == cluster_id].copy()\n",
+        "\n",
+        "        # Trier par similarité décroissante\n",
+        "        cluster_df = cluster_df.sort_values('similarity_score', ascending=False)\n",
+        "\n",
+        "        # Analyser les concepts présents dans ce cluster\n",
+        "        concept_counts = cluster_df['most_similar_concept'].value_counts()\n",
+        "        top_concepts = concept_counts.head(3).to_dict()  # Top 3 concepts\n",
+        "\n",
+        "        # Créer un fichier avec un nom informatif\n",
+        "        top_concept = concept_counts.index[0] if len(concept_counts) > 0 else \"inconnu\"\n",
+        "        top_concept_safe = ''.join(c if c.isalnum() else '_' for c in top_concept)  # Nom de fichier sécurisé\n",
+        "\n",
+        "        file_name = f\"cluster_{int(cluster_id):02d}_{top_concept_safe}_{len(cluster_df)}_prompts.csv\"\n",
+        "        file_path = os.path.join(output_dir, file_name)\n",
+        "\n",
+        "        # Enregistrer ce cluster en CSV\n",
+        "        cluster_df.to_csv(file_path, index=False, encoding='utf-8')\n",
+        "        print(f\"Cluster {int(cluster_id)} ({top_concept}, {len(cluster_df)} prompts) enregistré dans {file_name}\")\n",
+        "\n",
+        "    # Exporter les prompts détectés uniquement par mots-clés\n",
+        "    keyword_only = historical_prompts[historical_prompts['detection_method'] == 'keyword_only']\n",
+        "    if not keyword_only.empty:\n",
+        "        keyword_file = os.path.join(output_dir, \"keyword_only_prompts.csv\")\n",
+        "        keyword_only.to_csv(keyword_file, index=False, encoding='utf-8')\n",
+        "        print(f\"Prompts détectés par mots-clés uniquement ({len(keyword_only)}) enregistrés dans {keyword_file}\")\n",
+        "\n",
+        "    # Créer un fichier HTML pour explorer les clusters\n",
+        "    create_html_explorer(historical_prompts, os.path.join(output_dir, \"cluster_explorer.html\"))\n",
+        "\n",
+        "    return clusters_summary\n",
+        "\n",
+        "def create_html_explorer(historical_prompts, output_file):\n",
+        "    \"\"\"\n",
+        "    Crée un fichier HTML simple pour explorer les clusters de prompts.\n",
+        "\n",
+        "    Parameters:\n",
+        "    -----------\n",
+        "    historical_prompts : pandas.DataFrame\n",
+        "        DataFrame contenant les prompts historiques avec clustering\n",
+        "    output_file : str\n",
+        "        Chemin vers le fichier HTML de sortie\n",
+        "    \"\"\"\n",
+        "    # Extraire uniquement les prompts avec clusters valides\n",
+        "    clustered_prompts = historical_prompts[historical_prompts['cluster'].notna()].copy()\n",
+        "\n",
+        "    # Récupérer la liste des clusters uniques (triés)\n",
+        "    unique_clusters = sorted(clustered_prompts['cluster'].unique())\n",
+        "\n",
+        "    # Calculer des statistiques pour chaque cluster\n",
+        "    cluster_stats = {}\n",
+        "    for cluster_id in unique_clusters:\n",
+        "        if cluster_id == -1:  # Traiter les points de bruit séparément\n",
+        "            continue\n",
+        "\n",
+        "        cluster_df = clustered_prompts[clustered_prompts['cluster'] == cluster_id]\n",
+        "        concept_counts = cluster_df['most_similar_concept'].value_counts().head(3)\n",
+        "\n",
+        "        cluster_stats[cluster_id] = {\n",
+        "            'size': len(cluster_df),\n",
+        "            'avg_similarity': cluster_df['similarity_score'].mean(),\n",
+        "            'top_concepts': dict(concept_counts),\n",
+        "            'samples': cluster_df.sort_values('similarity_score', ascending=False).head(5)['prompt'].tolist()\n",
+        "        }\n",
+        "\n",
+        "    # Générer le HTML\n",
+        "    html_content = \"\"\"\n",
+        "    <!DOCTYPE html>\n",
+        "    <html lang=\"en\">\n",
+        "    <head>\n",
+        "        <meta charset=\"UTF-8\">\n",
+        "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n",
+        "        <title>Explorateur de Clusters de Prompts Historiques</title>\n",
+        "        <style>\n",
+        "            body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }\n",
+        "            h1 { color: #2c3e50; }\n",
+        "            h2 { color: #3498db; margin-top: 30px; }\n",
+        "            .cluster { border: 1px solid #ddd; padding: 15px; margin: 15px 0; border-radius: 5px; }\n",
+        "            .cluster-header { display: flex; justify-content: space-between; }\n",
+        "            .concept-tag { display: inline-block; background: #e0f7fa; padding: 3px 8px; margin: 3px; border-radius: 3px; }\n",
+        "            .prompt-item { padding: 8px; margin: 5px 0; background: #f9f9f9; border-left: 3px solid #3498db; }\n",
+        "            .similarity { font-size: 0.8em; color: #666; }\n",
+        "            .stats { color: #7f8c8d; font-size: 0.9em; }\n",
+        "            .toggle-button { background: #3498db; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px; }\n",
+        "            .prompt-list { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }\n",
+        "            .expanded { max-height: 2000px; }\n",
+        "            .search-container { margin: 20px 0; }\n",
+        "            #searchInput { padding: 8px; width: 250px; }\n",
+        "            #statsSection { margin-top: 30px; }\n",
+        "        </style>\n",
+        "    </head>\n",
+        "    <body>\n",
+        "        <h1>Explorateur de Clusters de Prompts Historiques</h1>\n",
+        "\n",
+        "        <div class=\"search-container\">\n",
+        "            <input type=\"text\" id=\"searchInput\" placeholder=\"Rechercher des prompts...\">\n",
+        "            <button onclick=\"searchPrompts()\">Rechercher</button>\n",
+        "        </div>\n",
+        "\n",
+        "        <div id=\"statsSection\">\n",
+        "            <h2>Statistiques générales</h2>\n",
+        "            <p>Nombre total de clusters: <strong>\"\"\" + str(len(cluster_stats)) + \"\"\"</strong></p>\n",
+        "            <p>Nombre total de prompts clusterisés: <strong>\"\"\" + str(len(clustered_prompts)) + \"\"\"</strong></p>\n",
+        "        </div>\n",
+        "\n",
+        "        <div id=\"clustersSection\">\n",
+        "    \"\"\"\n",
+        "\n",
+        "    # Ajouter chaque cluster au HTML\n",
+        "    for cluster_id in sorted([c for c in unique_clusters if c != -1]):\n",
+        "        stats = cluster_stats[cluster_id]\n",
+        "\n",
+        "        # Créer les balises de concepts\n",
+        "        concept_tags = \"\"\n",
+        "        for concept, count in stats['top_concepts'].items():\n",
+        "            concept_tags += f'<span class=\"concept-tag\">{concept} ({count})</span>'\n",
+        "\n",
+        "        # Ajouter les prompts échantillons\n",
+        "        prompt_items = \"\"\n",
+        "        for i, prompt in enumerate(stats['samples']):\n",
+        "            # Raccourcir le prompt pour l'affichage\n",
+        "            display_prompt = prompt[:200] + \"...\" if len(prompt) > 200 else prompt\n",
+        "            prompt_items += f'<div class=\"prompt-item\">{i+1}. {display_prompt}</div>'\n",
+        "\n",
+        "        # Créer la section de cluster\n",
+        "        html_content += f\"\"\"\n",
+        "        <div class=\"cluster\" data-cluster-id=\"{int(cluster_id)}\">\n",
+        "            <div class=\"cluster-header\">\n",
+        "                <h3>Cluster {int(cluster_id)}</h3>\n",
+        "                <button class=\"toggle-button\" onclick=\"togglePrompts(this)\">Afficher les prompts</button>\n",
+        "            </div>\n",
+        "            <div class=\"stats\">\n",
+        "                <p><strong>Taille:</strong> {stats['size']} prompts | <strong>Similarité moyenne:</strong> {stats['avg_similarity']:.2f}</p>\n",
+        "                <p><strong>Concepts principaux:</strong> {concept_tags}</p>\n",
+        "            </div>\n",
+        "            <div class=\"prompt-list\">\n",
+        "                <h4>Exemples de prompts:</h4>\n",
+        "                {prompt_items}\n",
+        "            </div>\n",
+        "        </div>\n",
+        "        \"\"\"\n",
+        "\n",
+        "    # Ajouter les points de bruit\n",
+        "    noise_df = clustered_prompts[clustered_prompts['cluster'] == -1]\n",
+        "    if len(noise_df) > 0:\n",
+        "        noise_samples = noise_df.sample(min(5, len(noise_df)))['prompt'].tolist()\n",
+        "        noise_items = \"\"\n",
+        "        for i, prompt in enumerate(noise_samples):\n",
+        "            display_prompt = prompt[:200] + \"...\" if len(prompt) > 200 else prompt\n",
+        "            noise_items += f'<div class=\"prompt-item\">{i+1}. {display_prompt}</div>'\n",
+        "\n",
+        "        html_content += f\"\"\"\n",
+        "        <div class=\"cluster\">\n",
+        "            <div class=\"cluster-header\">\n",
+        "                <h3>Points de bruit</h3>\n",
+        "                <button class=\"toggle-button\" onclick=\"togglePrompts(this)\">Afficher les prompts</button>\n",
+        "            </div>\n",
+        "            <div class=\"stats\">\n",
+        "                <p><strong>Taille:</strong> {len(noise_df)} prompts</p>\n",
+        "            </div>\n",
+        "            <div class=\"prompt-list\">\n",
+        "                <h4>Exemples de prompts:</h4>\n",
+        "                {noise_items}\n",
+        "            </div>\n",
+        "        </div>\n",
+        "        \"\"\"\n",
+        "\n",
+        "    # Ajouter le JavaScript et fermer les balises HTML\n",
+        "    html_content += \"\"\"\n",
+        "        </div>\n",
+        "\n",
+        "        <script>\n",
+        "            function togglePrompts(button) {\n",
+        "                const list = button.parentNode.nextElementSibling.nextElementSibling;\n",
+        "                list.classList.toggle('expanded');\n",
+        "                button.textContent = list.classList.contains('expanded') ? 'Masquer les prompts' : 'Afficher les prompts';\n",
+        "            }\n",
+        "\n",
+        "            function searchPrompts() {\n",
+        "                const searchTerm = document.getElementById('searchInput').value.toLowerCase();\n",
+        "                const clusters = document.querySelectorAll('.cluster');\n",
+        "\n",
+        "                if (searchTerm === '') {\n",
+        "                    // Si la recherche est vide, afficher tous les clusters\n",
+        "                    clusters.forEach(cluster => {\n",
+        "                        cluster.style.display = 'block';\n",
+        "                    });\n",
+        "                    return;\n",
+        "                }\n",
+        "\n",
+        "                clusters.forEach(cluster => {\n",
+        "                    const promptItems = cluster.querySelectorAll('.prompt-item');\n",
+        "                    let matchFound = false;\n",
+        "\n",
+        "                    promptItems.forEach(item => {\n",
+        "                        if (item.textContent.toLowerCase().includes(searchTerm)) {\n",
+        "                            matchFound = true;\n",
+        "                        }\n",
+        "                    });\n",
+        "\n",
+        "                    // Aussi vérifier dans les concepts\n",
+        "                    const conceptTags = cluster.querySelectorAll('.concept-tag');\n",
+        "                    conceptTags.forEach(tag => {\n",
+        "                        if (tag.textContent.toLowerCase().includes(searchTerm)) {\n",
+        "                            matchFound = true;\n",
+        "                        }\n",
+        "                    });\n",
+        "\n",
+        "                    cluster.style.display = matchFound ? 'block' : 'none';\n",
+        "                });\n",
+        "            }\n",
+        "        </script>\n",
+        "    </body>\n",
+        "    </html>\n",
+        "    \"\"\"\n",
+        "\n",
+        "    # Écrire le HTML dans un fichier\n",
+        "    with open(output_file, 'w', encoding='utf-8') as f:\n",
+        "        f.write(html_content)\n",
+        "\n",
+        "    print(f\"Explorateur HTML créé: {output_file}\")\n",
+        "\n",
+        "# Exemple d'utilisation après avoir exécuté l'analyse des clusters:\n",
+        "summary = export_clusters_to_csv(historical_prompts_clustered)"
+      ],
+      "metadata": {
+        "id": "pc9_9NB79Eqj",
+        "outputId": "05b4f583-2156-46ca-ef38-6033a010bafe",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 184
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "name 'historical_prompts_clustered' is not defined",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-6-5b4745c235c6>\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m    293\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    294\u001b[0m \u001b[0;31m# Exemple d'utilisation après avoir exécuté l'analyse des clusters:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 295\u001b[0;31m \u001b[0msummary\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mexport_clusters_to_csv\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mhistorical_prompts_clustered\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m: name 'historical_prompts_clustered' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "summary = export_clusters_to_csv(historical_prompts_clustered)"
+      ],
+      "metadata": {
+        "id": "EGRRcwac9LJW"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Dataviz"
+      ],
+      "metadata": {
+        "id": "q2_9wZyIhTMd"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "lpR84gfZzzb4"
+      },
+      "source": [
+        "### 1. Visualisation de la distribution des scores de similarité\n",
+        "\n",
+        "Cette cellule permet de visualiser comment les scores de similarité sont distribués et d'évaluer si le seuil choisi (0.6) est approprié"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "84EXA6Vuzzb5"
+      },
+      "outputs": [],
+      "source": [
+        "def visualize_similarity_distribution(similarity_scores, threshold=0.6, output_path='./figures/'):\n",
+        "    \"\"\"\n",
+        "    Visualise la distribution des scores de similarité et marque le seuil utilisé.\n",
+        "\n",
+        "    Args:\n",
+        "        similarity_scores: Tableau numpy des scores de similarité\n",
+        "        threshold: Seuil utilisé pour filtrer les prompts historiques\n",
+        "        output_path: Chemin pour sauvegarder les figures\n",
+        "    \"\"\"\n",
+        "    import matplotlib.pyplot as plt\n",
+        "    import numpy as np\n",
+        "    import os\n",
+        "\n",
+        "    os.makedirs(output_path, exist_ok=True)\n",
+        "\n",
+        "    plt.figure(figsize=(10, 6))\n",
+        "\n",
+        "    # Histogramme des scores de similarité\n",
+        "    plt.hist(similarity_scores, bins=50, alpha=0.7, color='steelblue')\n",
+        "\n",
+        "    # Ligne verticale pour le seuil\n",
+        "    plt.axvline(x=threshold, color='red', linestyle='--',\n",
+        "                label=f'Seuil ({threshold})')\n",
+        "\n",
+        "    # Annotations\n",
+        "    plt.title('Distribution des scores de similarité avec les concepts historiques',\n",
+        "              fontsize=14)\n",
+        "    plt.xlabel('Score de similarité', fontsize=12)\n",
+        "    plt.ylabel('Nombre de prompts', fontsize=12)\n",
+        "    plt.legend()\n",
+        "    plt.grid(alpha=0.3)\n",
+        "\n",
+        "    # Annotation des statistiques clés\n",
+        "    plt.text(0.02, 0.95,\n",
+        "             f\"Total: {len(similarity_scores)}\\nHistoriques: {np.sum(similarity_scores > threshold)} ({np.mean(similarity_scores > threshold):.1%})\",\n",
+        "             transform=plt.gca().transAxes,\n",
+        "             bbox=dict(facecolor='white', alpha=0.8))\n",
+        "\n",
+        "    plt.tight_layout()\n",
+        "    plt.savefig(os.path.join(output_path, 'similarity_distribution.png'), dpi=300)\n",
+        "    plt.show()\n",
+        "\n",
+        "# D'abord, exécutez le pipeline principal pour générer les données nécessaires si pas déjà fait\n",
+        "# historical_prompts, prompt_embeddings, max_similarities = process_prompts_for_historical_content(prompts_df)\n",
+        "\n",
+        "# Exemple d'utilisation\n",
+        "visualize_similarity_distribution(max_similarities)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "J781NNphzzb5"
+      },
+      "source": [
+        "### 2. Carte de chaleur des similarités entre concepts historiques\n",
+        "\n",
+        "Cette cellule permet de visualiser comment les concepts historiques sont reliés entre eux"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "w0YCcMfazzb6"
+      },
+      "outputs": [],
+      "source": [
+        "def visualize_historical_concepts_similarity(historical_concepts, historical_embeddings, output_path='./figures/'):\n",
+        "    \"\"\"\n",
+        "    Crée une carte de chaleur montrant les similarités entre concepts historiques.\n",
+        "\n",
+        "    Args:\n",
+        "        historical_concepts: Liste des concepts historiques\n",
+        "        historical_embeddings: Embeddings des concepts historiques\n",
+        "        output_path: Chemin pour sauvegarder les figures\n",
+        "    \"\"\"\n",
+        "    import matplotlib.pyplot as plt\n",
+        "    import numpy as np\n",
+        "    import seaborn as sns\n",
+        "    from sklearn.metrics.pairwise import cosine_similarity\n",
+        "    import os\n",
+        "\n",
+        "    os.makedirs(output_path, exist_ok=True)\n",
+        "\n",
+        "    # Calculer la matrice de similarité entre concepts\n",
+        "    concept_similarity = cosine_similarity(historical_embeddings)\n",
+        "\n",
+        "    # Créer une figure de taille appropriée\n",
+        "    plt.figure(figsize=(12, 10))\n",
+        "\n",
+        "    # Créer la heatmap avec seaborn\n",
+        "    sns.heatmap(concept_similarity, annot=True, fmt=\".2f\", cmap=\"YlGnBu\",\n",
+        "                xticklabels=historical_concepts, yticklabels=historical_concepts)\n",
+        "\n",
+        "    plt.title(\"Similarité entre les concepts historiques\", fontsize=16)\n",
+        "    plt.tight_layout()\n",
+        "    plt.savefig(os.path.join(output_path, 'historical_concepts_similarity.png'), dpi=300)\n",
+        "    plt.show()\n",
+        "\n",
+        "# Exemple d'utilisation\n",
+        "visualize_historical_concepts_similarity(historical_concepts, historical_embeddings)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "DHMtSy0yzzb6"
+      },
+      "source": [
+        "### 3. Projection UMAP des prompts avec coloration par concept le plus similaire\n",
+        "Cette visualisation permet de voir comment les prompts se regroupent naturellement et si les concepts les plus similaires forment des clusters cohérents"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "GlMNhI9Nzzb6"
+      },
+      "outputs": [],
+      "source": [
+        "def visualize_umap_by_concept(historical_prompts, historical_umap, output_path='./figures/'):\n",
+        "    \"\"\"\n",
+        "    Visualise la projection UMAP des prompts, colorés par concept historique le plus similaire.\n",
+        "\n",
+        "    Args:\n",
+        "        historical_prompts: DataFrame contenant les prompts historiques avec leur concept le plus similaire\n",
+        "        historical_umap: Coordonnées UMAP des prompts historiques\n",
+        "        output_path: Chemin pour sauvegarder les figures\n",
+        "    \"\"\"\n",
+        "    import matplotlib.pyplot as plt\n",
+        "    import numpy as np\n",
+        "    import os\n",
+        "    from matplotlib.colors import ListedColormap\n",
+        "\n",
+        "    os.makedirs(output_path, exist_ok=True)\n",
+        "\n",
+        "    # Obtenir les concepts uniques\n",
+        "    unique_concepts = historical_prompts['most_similar_concept'].unique()\n",
+        "    n_concepts = len(unique_concepts)\n",
+        "\n",
+        "    # Créer un mapping des concepts aux indices\n",
+        "    concept_to_idx = {concept: i for i, concept in enumerate(unique_concepts)}\n",
+        "\n",
+        "    # Obtenir un tableau numpy des indices de concepts\n",
+        "    concept_indices = np.array([concept_to_idx[concept] for concept in historical_prompts['most_similar_concept']])\n",
+        "\n",
+        "    # Créer une colormap avec suffisamment de couleurs distinctes\n",
+        "    import matplotlib.cm as cm\n",
+        "    if n_concepts <= 10:\n",
+        "        cmap = ListedColormap(plt.cm.tab10.colors[:n_concepts])\n",
+        "    elif n_concepts <= 20:\n",
+        "        cmap = ListedColormap(plt.cm.tab20.colors[:n_concepts])\n",
+        "    else:\n",
+        "        cmap = plt.cm.nipy_spectral\n",
+        "\n",
+        "    plt.figure(figsize=(14, 10))\n",
+        "\n",
+        "    # Scatter plot avec coloration par concept\n",
+        "    scatter = plt.scatter(historical_umap[:, 0], historical_umap[:, 1],\n",
+        "                         c=concept_indices, cmap=cmap,\n",
+        "                         alpha=0.7, s=10)\n",
+        "\n",
+        "    # Créer une légende explicite\n",
+        "    from matplotlib.lines import Line2D\n",
+        "    legend_elements = [Line2D([0], [0], marker='o', color='w',\n",
+        "                              markerfacecolor=cmap(concept_to_idx[concept]),\n",
+        "                              markersize=8, label=concept)\n",
+        "                       for concept in unique_concepts]\n",
+        "\n",
+        "    plt.legend(handles=legend_elements, loc='upper right',\n",
+        "               bbox_to_anchor=(1.1, 1), ncol=1)\n",
+        "\n",
+        "    plt.title('Projection UMAP des prompts historiques par concept', fontsize=14)\n",
+        "    plt.xlabel('UMAP Dimension 1', fontsize=12)\n",
+        "    plt.ylabel('UMAP Dimension 2', fontsize=12)\n",
+        "    plt.tight_layout()\n",
+        "    plt.savefig(os.path.join(output_path, 'umap_by_concept.png'), dpi=300)\n",
+        "    plt.show()\n",
+        "\n",
+        "# Exemple d'utilisation\n",
+        "visualize_umap_by_concept(historical_prompts, historical_umap)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "zpCXtfFezzb6"
+      },
+      "source": [
+        "### 4. Nuage de mots pour chaque cluster\n",
+        "\n",
+        "Cette visualisation permet d'explorer les termes les plus fréquents dans chaque cluster"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "8HKCYht_zzb7"
+      },
+      "outputs": [],
+      "source": [
+        "def generate_cluster_wordclouds(historical_prompts, output_path='./figures/'):\n",
+        "    \"\"\"\n",
+        "    Génère un nuage de mots pour chaque cluster identifié.\n",
+        "\n",
+        "    Args:\n",
+        "        historical_prompts: DataFrame contenant les prompts historiques avec leurs clusters\n",
+        "        output_path: Chemin pour sauvegarder les figures\n",
+        "    \"\"\"\n",
+        "    from wordcloud import WordCloud\n",
+        "    import matplotlib.pyplot as plt\n",
+        "    import os\n",
+        "    import nltk\n",
+        "    from nltk.corpus import stopwords\n",
+        "\n",
+        "    # Télécharger les stopwords si nécessaire\n",
+        "    try:\n",
+        "        nltk.data.find('corpora/stopwords')\n",
+        "    except LookupError:\n",
+        "        nltk.download('stopwords')\n",
+        "\n",
+        "    stop_words = set(stopwords.words('english'))\n",
+        "\n",
+        "    os.makedirs(output_path, exist_ok=True)\n",
+        "\n",
+        "    # Pour chaque cluster\n",
+        "    for cluster_id in sorted(historical_prompts['cluster'].unique()):\n",
+        "        if cluster_id == -1:  # Ignorer les points de bruit\n",
+        "            continue\n",
+        "\n",
+        "        # Filtrer les prompts de ce cluster\n",
+        "        cluster_prompts = historical_prompts[historical_prompts['cluster'] == cluster_id]['prompt']\n",
+        "\n",
+        "        if len(cluster_prompts) == 0:\n",
+        "            continue\n",
+        "\n",
+        "        # Combiner tous les textes\n",
+        "        text = ' '.join(cluster_prompts)\n",
+        "\n",
+        "        # Créer le nuage de mots\n",
+        "        wordcloud = WordCloud(\n",
+        "            width=800,\n",
+        "            height=400,\n",
+        "            background_color='white',\n",
+        "            stopwords=stop_words,\n",
+        "            max_words=100,\n",
+        "            contour_width=3\n",
+        "        ).generate(text)\n",
+        "\n",
+        "        # Afficher et sauvegarder\n",
+        "        plt.figure(figsize=(16, 8))\n",
+        "        plt.imshow(wordcloud, interpolation='bilinear')\n",
+        "        plt.axis('off')\n",
+        "        plt.title(f'Nuage de mots pour le Cluster {cluster_id} ({len(cluster_prompts)} prompts)',\n",
+        "                 fontsize=16)\n",
+        "        plt.tight_layout()\n",
+        "        plt.savefig(os.path.join(output_path, f'wordcloud_cluster_{cluster_id}.png'), dpi=300)\n",
+        "        plt.close()\n",
+        "\n",
+        "    print(f\"Nuages de mots générés pour {len(historical_prompts['cluster'].unique()) - 1} clusters\")\n",
+        "\n",
+        "# Exemple d'utilisation\n",
+        "generate_cluster_wordclouds(historical_prompts)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "caLeAOPFzzb7"
+      },
+      "source": [
+        "### 5. Distribution des concepts historiques par cluster\n",
+        "Cette visualisation montre comment les différents concepts historiques sont distribués dans les clusters identifiés"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "DW_xK_49zzb8"
+      },
+      "outputs": [],
+      "source": [
+        "def visualize_concepts_by_cluster(historical_prompts, output_path='./figures/'):\n",
+        "    \"\"\"\n",
+        "    Crée une heatmap montrant la distribution des concepts historiques par cluster.\n",
+        "\n",
+        "    Args:\n",
+        "        historical_prompts: DataFrame contenant les prompts historiques\n",
+        "        output_path: Chemin pour sauvegarder les figures\n",
+        "    \"\"\"\n",
+        "    import matplotlib.pyplot as plt\n",
+        "    import seaborn as sns\n",
+        "    import pandas as pd\n",
+        "    import os\n",
+        "\n",
+        "    os.makedirs(output_path, exist_ok=True)\n",
+        "\n",
+        "    # Ignorer les points de bruit (cluster -1) si présents\n",
+        "    if -1 in historical_prompts['cluster'].unique():\n",
+        "        df_filtered = historical_prompts[historical_prompts['cluster'] != -1].copy()\n",
+        "    else:\n",
+        "        df_filtered = historical_prompts.copy()\n",
+        "\n",
+        "    # Créer une table de contingence\n",
+        "    cross_tab = pd.crosstab(\n",
+        "        df_filtered['most_similar_concept'],\n",
+        "        df_filtered['cluster'],\n",
+        "        normalize='index'\n",
+        "    )\n",
+        "\n",
+        "    # Tri pour une meilleure visualisation\n",
+        "    # On trie les concepts par cluster dominant\n",
+        "    dominant_clusters = cross_tab.idxmax(axis=1)\n",
+        "    sorted_concepts = dominant_clusters.sort_values().index\n",
+        "    cross_tab = cross_tab.loc[sorted_concepts]\n",
+        "\n",
+        "    plt.figure(figsize=(14, 10))\n",
+        "    sns.heatmap(cross_tab, annot=True, cmap=\"YlGnBu\", fmt='.0%')\n",
+        "    plt.title('Distribution des concepts historiques par cluster', fontsize=16)\n",
+        "    plt.ylabel('Concept historique', fontsize=14)\n",
+        "    plt.xlabel('Cluster', fontsize=14)\n",
+        "    plt.tight_layout()\n",
+        "    plt.savefig(os.path.join(output_path, 'concept_cluster_distribution.png'), dpi=300)\n",
+        "    plt.show()\n",
+        "\n",
+        "# Exemple d'utilisation\n",
+        "visualize_concepts_by_cluster(historical_prompts)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "0nj9wR-fzzb8"
+      },
+      "source": [
+        "### 6. Analyse des termes les plus communs par concept historique\n",
+        "\n",
+        "Cette visualisation aide à comprendre quels termes sont les plus associés à chaque concept historique"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "IGSJ72tAzzb8"
+      },
+      "outputs": [],
+      "source": [
+        "def analyze_terms_by_concept(historical_prompts, output_path='./figures/'):\n",
+        "    \"\"\"\n",
+        "    Analyse et visualise les termes les plus fréquents pour chaque concept historique.\n",
+        "\n",
+        "    Args:\n",
+        "        historical_prompts: DataFrame contenant les prompts historiques\n",
+        "        output_path: Chemin pour sauvegarder les figures\n",
+        "    \"\"\"\n",
+        "    import matplotlib.pyplot as plt\n",
+        "    import os\n",
+        "    import nltk\n",
+        "    from nltk.tokenize import word_tokenize\n",
+        "    from nltk.corpus import stopwords\n",
+        "    from collections import Counter\n",
+        "\n",
+        "    # Télécharger les ressources NLTK nécessaires\n",
+        "    try:\n",
+        "        nltk.data.find('tokenizers/punkt')\n",
+        "        nltk.data.find('corpora/stopwords')\n",
+        "    except LookupError:\n",
+        "        nltk.download('punkt')\n",
+        "        nltk.download('stopwords')\n",
+        "\n",
+        "    stop_words = set(stopwords.words('english'))\n",
+        "\n",
+        "    os.makedirs(output_path, exist_ok=True)\n",
+        "\n",
+        "    # Pour chaque concept historique\n",
+        "    for concept in historical_prompts['most_similar_concept'].unique():\n",
+        "        # Filtrer les prompts de ce concept\n",
+        "        concept_prompts = historical_prompts[historical_prompts['most_similar_concept'] == concept]['prompt']\n",
+        "\n",
+        "        # Combiner tous les prompts\n",
+        "        text = ' '.join(concept_prompts)\n",
+        "\n",
+        "        # Tokenizer\n",
+        "        tokens = word_tokenize(text.lower())\n",
+        "\n",
+        "        # Filtrer les stopwords et les tokens courts\n",
+        "        filtered_tokens = [word for word in tokens if word.isalpha() and word not in stop_words and len(word) > 2]\n",
+        "\n",
+        "        # Compter les occurrences\n",
+        "        word_counts = Counter(filtered_tokens)\n",
+        "\n",
+        "        # Prendre les N mots les plus fréquents\n",
+        "        top_n = 20\n",
+        "        top_words = word_counts.most_common(top_n)\n",
+        "\n",
+        "        # Préparer les données pour le graphique\n",
+        "        words = [word for word, count in top_words]\n",
+        "        counts = [count for word, count in top_words]\n",
+        "\n",
+        "        # Créer le graphique\n",
+        "        plt.figure(figsize=(12, 8))\n",
+        "        plt.barh(words[::-1], counts[::-1], color='steelblue')\n",
+        "        plt.xlabel('Fréquence')\n",
+        "        plt.title(f'Termes les plus fréquents pour \"{concept}\" ({len(concept_prompts)} prompts)',\n",
+        "                 fontsize=14)\n",
+        "        plt.tight_layout()\n",
+        "        plt.savefig(os.path.join(output_path, f'terms_{concept.replace(\" \", \"_\")}.png'), dpi=300)\n",
+        "        plt.close()\n",
+        "\n",
+        "    print(f\"Analyse des termes générée pour {len(historical_prompts['most_similar_concept'].unique())} concepts\")\n",
+        "\n",
+        "# Exemple d'utilisation\n",
+        "analyze_terms_by_concept(historical_prompts)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7kRRe0dgzzb9"
+      },
+      "source": [
+        "### 7. Visualisation interactive avec Plotly\n",
+        "\n",
+        "Cette cellule crée une visualisation interactive de la projection UMAP qui permet d'explorer les prompts historiques de manière plus interactive"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "27WS7FxPzzb9"
+      },
+      "outputs": [],
+      "source": [
+        "def create_interactive_visualization(historical_prompts, historical_umap, output_path='./figures/'):\n",
+        "    \"\"\"\n",
+        "    Crée une visualisation interactive des prompts historiques avec Plotly.\n",
+        "\n",
+        "    Args:\n",
+        "        historical_prompts: DataFrame contenant les prompts historiques\n",
+        "        historical_umap: Coordonnées UMAP des prompts historiques\n",
+        "        output_path: Chemin pour sauvegarder les figures\n",
+        "    \"\"\"\n",
+        "    import plotly.express as px\n",
+        "    import pandas as pd\n",
+        "    import os\n",
+        "\n",
+        "    os.makedirs(output_path, exist_ok=True)\n",
+        "\n",
+        "    # Créer un DataFrame pour Plotly\n",
+        "    viz_df = pd.DataFrame({\n",
+        "        'UMAP1': historical_umap[:, 0],\n",
+        "        'UMAP2': historical_umap[:, 1],\n",
+        "        'Cluster': historical_prompts['cluster'],\n",
+        "        'Concept': historical_prompts['most_similar_concept'],\n",
+        "        'Score': historical_prompts['similarity_score'],\n",
+        "        'Prompt': historical_prompts['prompt']\n",
+        "    })\n",
+        "\n",
+        "    # Créer la visualisation interactive\n",
+        "    fig = px.scatter(\n",
+        "        viz_df,\n",
+        "        x='UMAP1',\n",
+        "        y='UMAP2',\n",
+        "        color='Concept',\n",
+        "        hover_data=['Prompt', 'Score', 'Cluster'],\n",
+        "        opacity=0.7,\n",
+        "        title='Exploration interactive des prompts historiques',\n",
+        "        template='plotly_white',\n",
+        "        color_discrete_sequence=px.colors.qualitative.Bold\n",
+        "    )\n",
+        "\n",
+        "    # Améliorer la mise en page\n",
+        "    fig.update_layout(\n",
+        "        legend=dict(\n",
+        "            orientation=\"h\",\n",
+        "            yanchor=\"bottom\",\n",
+        "            y=-0.2,\n",
+        "            xanchor=\"center\",\n",
+        "            x=0.5\n",
+        "        ),\n",
+        "        width=1200,\n",
+        "        height=800\n",
+        "    )\n",
+        "\n",
+        "    # Enregistrer en tant que fichier HTML autonome\n",
+        "    fig.write_html(os.path.join(output_path, 'interactive_visualization.html'))\n",
+        "\n",
+        "    return fig\n",
+        "\n",
+        "# Exemple d'utilisation\n",
+        "fig = create_interactive_visualization(historical_prompts, historical_umap)\n",
+        "fig.show()  # Afficher dans le notebook"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "pN3hWpg1zzb-"
+      },
+      "source": [
+        "### 8. Réseau de co-occurrence de concepts dans les clusters\n",
+        "Cette visualisation montre comment les concepts historiques sont liés entre eux à travers leur présence dans les mêmes clusters"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "EwOIg5Qozzb_"
+      },
+      "outputs": [],
+      "source": [
+        "def visualize_concept_network(historical_prompts, output_path='./figures/'):\n",
+        "    \"\"\"\n",
+        "    Crée une visualisation en réseau des relations entre concepts historiques\n",
+        "    basée sur leur co-occurrence dans les clusters.\n",
+        "\n",
+        "    Args:\n",
+        "        historical_prompts: DataFrame contenant les prompts historiques\n",
+        "        output_path: Chemin pour sauvegarder les figures\n",
+        "    \"\"\"\n",
+        "    import networkx as nx\n",
+        "    import matplotlib.pyplot as plt\n",
+        "    import pandas as pd\n",
+        "    import os\n",
+        "\n",
+        "    os.makedirs(output_path, exist_ok=True)\n",
+        "\n",
+        "    # Filtrer pour exclure les points de bruit\n",
+        "    if -1 in historical_prompts['cluster'].unique():\n",
+        "        df_filtered = historical_prompts[historical_prompts['cluster'] != -1].copy()\n",
+        "    else:\n",
+        "        df_filtered = historical_prompts.copy()\n",
+        "\n",
+        "    # Créer un graphe\n",
+        "    G = nx.Graph()\n",
+        "\n",
+        "    # Ajouter des nœuds pour chaque concept\n",
+        "    concepts = df_filtered['most_similar_concept'].unique()\n",
+        "    for concept in concepts:\n",
+        "        count = df_filtered[df_filtered['most_similar_concept'] == concept].shape[0]\n",
+        "        G.add_node(concept, size=count, count=count)\n",
+        "\n",
+        "    # Pour chaque cluster, créer des liens entre concepts présents\n",
+        "    for cluster in df_filtered['cluster'].unique():\n",
+        "        # Obtenir les concepts dans ce cluster\n",
+        "        cluster_concepts = df_filtered[df_filtered['cluster'] == cluster]['most_similar_concept'].unique()\n",
+        "\n",
+        "        # Créer des liens pour chaque paire de concepts\n",
+        "        for i, concept1 in enumerate(cluster_concepts):\n",
+        "            for concept2 in cluster_concepts[i+1:]:\n",
+        "                # Si le lien existe déjà, augmenter son poids\n",
+        "                if G.has_edge(concept1, concept2):\n",
+        "                    G[concept1][concept2]['weight'] += 1\n",
+        "                else:\n",
+        "                    G.add_edge(concept1, concept2, weight=1)\n",
+        "\n",
+        "    # Taille des nœuds basée sur la fréquence\n",
+        "    node_sizes = [G.nodes[node]['size'] * 20 for node in G.nodes]\n",
+        "\n",
+        "    # Épaisseur des liens basée sur les poids\n",
+        "    edge_weights = [G[u][v]['weight'] * 0.5 for u, v in G.edges]\n",
+        "\n",
+        "    # Positionner les nœuds\n",
+        "    pos = nx.spring_layout(G, seed=42, k=0.3)\n",
+        "\n",
+        "    plt.figure(figsize=(14, 12))\n",
+        "\n",
+        "    # Dessiner les nœuds\n",
+        "    nx.draw_networkx_nodes(G, pos,\n",
+        "                          node_size=node_sizes,\n",
+        "                          node_color='skyblue',\n",
+        "                          alpha=0.8)\n",
+        "\n",
+        "    # Dessiner les liens\n",
+        "    nx.draw_networkx_edges(G, pos,\n",
+        "                          width=edge_weights,\n",
+        "                          alpha=0.5,\n",
+        "                          edge_color='gray')\n",
+        "\n",
+        "    # Ajouter les étiquettes\n",
+        "    nx.draw_networkx_labels(G, pos, font_size=10, font_family='sans-serif')\n",
+        "\n",
+        "    plt.title('Réseau de co-occurrence des concepts historiques', fontsize=16)\n",
+        "    plt.axis('off')\n",
+        "    plt.tight_layout()\n",
+        "    plt.savefig(os.path.join(output_path, 'concept_network.png'), dpi=300, bbox_inches='tight')\n",
+        "    plt.show()\n",
+        "\n",
+        "    return G\n",
+        "\n",
+        "# Exemple d'utilisation\n",
+        "concept_network = visualize_concept_network(historical_prompts)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "byOi5gGezzb_"
+      },
+      "outputs": [],
+      "source": []
+    }
+  ],
+  "metadata": {
+    "citation-manager": {
+      "items": {}
+    },
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "display_name": "Python 3.11 (negotiating_past)",
+      "language": "python",
+      "name": "negotiating_past"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.11.11"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
