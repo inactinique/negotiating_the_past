@@ -1,0 +1,72 @@
+---
+title: negotiating the past
+author: [frédéric clavert](https://inactinique.net)
+date: 16/05/2025
+---
+
+# negotiating the past?
+
+historical representations / artificial intelligence / collective memory
+
+
+<small>prompt: Draw an image representing what is collective memory</small>
+
+<aside name='notes'>
+
+This presentation explores the intersection of historical representations, artificial intelligence, and collective memory.
+
+Negotiating the past? In a way, we -- as a collective body, a society -- are negotiating the past in different spaces: committees that define which historical knowledge students should learn, for instance. In more dramatic circumstances, Truth and Reconciliation commissions, like in South Africa, are also some sort of spaces to negotiate the past, or, in this precise case, to negotiate which reparation should be defined from social groups that suffered from conflicting past. But to define those reparations, there should first be an agreement, or at least some sort of non opposition to the way the commission is seeing the past. Concerning an event that is more linked to my very old doctoral research, the international military trial in Nurenberg was a space of negotation of the past -- with the very caricatural position on the Katyn massacre for instance.
+
+Let's go back to today's subject. I'll try to examine how users "negotiate" with AI systems to express their conceptions of the past, how these interactions can reveal tensions between user expectations and AI-embedded historical patterns, and how to instert this into memory studies.
+
+Just one word on memory studies: historians are not that many to be active in the field of memory studies, though historians are a lot speaking about collective or cultural memory. To my opinion, it may have been useful -- because memory studies also fostered some sort of redefinition of what is memory -- but historians should be aware that today, they should also go into memory studies.
+
+</aside>
+
+## 
+
+1. **Theoretical Framework**: How LLMs encode historical perspectives
+2. **Methodological Approach**: Analyzing historical references in prompts
+3. **Results Analysis**: What prompt analysis reveals about historical imagination
+4. **Conclusion**: New spaces for historical negotiation
+
+# Part I: Theoretical Framework
+
+## LLMs and Embedded Historical Patterns
+
+- LLMs as Statistical Pattern Recognizers
+- Training Data as Historical Record
+- Historical Biases in Language Models
+- "Stochastic Parrots" and Historical Truth
+
+## Technical Foundation of LLMs
+
+LLMs rely on transformer architectures that predict tokens based on previous context. Their "knowledge" of history comes from statistical patterns in training data, not genuine understanding. This creates an interesting dynamic when users prompt these systems about historical topics - the system's responses reveal embedded historical narratives from their training data.
+
+## Historical Knowledge in Vector Space
+
+- Word embeddings capture semantic relationships
+- Historical concepts represented as vectors
+- Temporal relationships encoded in semantic proximity
+- Cultural associations embedded in language patterns
+
+Within the vector space of LLMs, historical concepts are encoded as points in multidimensional space. The relationships between historical events, figures, and concepts are captured in the distances and directions between these vectors. These semantic relationships reflect collective memory patterns from the training corpus.
+
+## Collective Memory and LLMs
+
+- LLMs as repositories of digitized collective memory
+- Training data selection as memory politics
+- The "averaged" nature of AI-generated historical narratives
+- Absence of contested memory in statistical consensus
+
+From a memory studies perspective, LLMs function as repositories of digitized collective memory. The selection of training data constitutes a form of memory politics, determining which historical perspectives are included or excluded. The statistical nature of these models produces "averaged" historical narratives that often elide contestation and complexity.
+
+# Part II: Methodological Approach
+
+## The Challenge of Historical Prompt Identification
+
+- Beyond simple keyword approaches
+- Historical references: explicit vs. implicit
+- Temporality in language
+- Building a robust identification strategy
+
