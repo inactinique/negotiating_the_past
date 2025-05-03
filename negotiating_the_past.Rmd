@@ -1,47 +1,59 @@
 ---
-title: negotiating the past
-author: [frédéric clavert](https://inactinique.net)
-date: 16/05/2025
+title: 'negotiating the past'
+author: "[frédéric clavert](https://inactinique.net)"
+date: "14/05/2025"
+output:
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes"]
+    center: true
 ---
 
-# negotiating the past?
+# 
 
 historical representations / artificial intelligence / collective memory
 
 
-<small>prompt: Draw an image representing what is collective memory</small>
+<!-- <small>prompt: Draw an image representing what is collective memory</small> -->
 
-<aside name='notes'>
+<aside class='notes'>
 
-This presentation explores the intersection of historical representations, artificial intelligence, and collective memory.
+This talk will explore the intersection of historical representations, artificial intelligence, and collective memory.
 
-Negotiating the past? In a way, we -- as a collective body, a society -- are negotiating the past in different spaces: committees that define which historical knowledge students should learn, for instance. In more dramatic circumstances, Truth and Reconciliation commissions, like in South Africa, are also some sort of spaces to negotiate the past, or, in this precise case, to negotiate which reparation should be defined from social groups that suffered from conflicting past. But to define those reparations, there should first be an agreement, or at least some sort of non opposition to the way the commission is seeing the past. Concerning an event that is more linked to my very old doctoral research, the international military trial in Nurenberg was a space of negotation of the past -- with the very caricatural position on the Katyn massacre for instance.
+Negotiating the past? In a way, we -- as a collective body, a society -- are "negotiating" the past in different spaces: committees that define which historical knowledge students should learn, for instance. In more dramatic circumstances, Truth and Reconciliation commissions, like in South Africa, are also some sort of spaces to negotiate the past, or, in this precise case, to negotiate which reparation should be defined from social groups that suffered from conflicting past. But to define those reparations, there should first be an agreement, or at least some sort of non opposition to the way the commission is seeing the past. Concerning an event that is more linked to my very old doctoral research, the international military trial in Nurenberg was a space of negotation of the past -- with the very caricatural position on the Katyn massacre for instance.
 
 Let's go back to today's subject. I'll try to examine how users "negotiate" with AI systems to express their conceptions of the past, how these interactions can reveal tensions between user expectations and AI-embedded historical patterns, and how to instert this into memory studies.
 
 Just one word on memory studies: historians are not that many to be active in the field of memory studies, though historians are a lot speaking about collective or cultural memory. To my opinion, it may have been useful -- because memory studies also fostered some sort of redefinition of what is memory -- but historians should be aware that today, they should also go into memory studies.
 
-</aside>
-
-## 
+- I'll try first to show how LLMs encode historical perspectives, trying to set up a theoretical framework.
+- I'll then show how I am using myself AI and LLMs to get prompts containing reference(s) to the past, to set up a corpus of prompts to analyse, and how I do analyse them.
+- I'll then comment the analyses before concluding on chatbots / diffusion systems as new spaces for negotiation on the diverse ways we collectively see the past.  
 
 1. **Theoretical Framework**: How LLMs encode historical perspectives
 2. **Methodological Approach**: Analyzing historical references in prompts
 3. **Results Analysis**: What prompt analysis reveals about historical imagination
 4. **Conclusion**: New spaces for historical negotiation
 
-# Part I: Theoretical Framework
+</aside>
+
+
+# Part I: the latent space of the historical past 
+
+How do generative AI platforms embed the past?
 
 ## LLMs and Embedded Historical Patterns
+
+LLMs here are used as examples.
 
 - LLMs as Statistical Pattern Recognizers
 - Training Data as Historical Record
 - Historical Biases in Language Models
 - "Stochastic Parrots" and Historical Truth
 
-## Technical Foundation of LLMs
+<aside class=notes>LLMs rely on transformer architectures that predict tokens based on previous context. Their "knowledge" of history comes from statistical patterns in training data, not genuine understanding. This creates an interesting dynamic when users prompt these systems about historical topics - the system's responses reveal embedded historical narratives from their training data.
 
-LLMs rely on transformer architectures that predict tokens based on previous context. Their "knowledge" of history comes from statistical patterns in training data, not genuine understanding. This creates an interesting dynamic when users prompt these systems about historical topics - the system's responses reveal embedded historical narratives from their training data.
+</aside>
 
 ## Historical Knowledge in Vector Space
 
@@ -50,16 +62,57 @@ LLMs rely on transformer architectures that predict tokens based on previous con
 - Temporal relationships encoded in semantic proximity
 - Cultural associations embedded in language patterns
 
-Within the vector space of LLMs, historical concepts are encoded as points in multidimensional space. The relationships between historical events, figures, and concepts are captured in the distances and directions between these vectors. These semantic relationships reflect collective memory patterns from the training corpus.
+<aside class=notes>Within the vector space of LLMs, historical concepts are encoded as points in multidimensional space. The relationships between historical events, figures, and concepts are captured in the distances and directions between these vectors. These semantic relationships reflect collective memory patterns from the training corpus.
+
+Latent space: historical concepts are then 'compressed' into a latent space 
+
+see Alban Leveau-Vallier's talk and book
+
+</aside>
 
 ## Collective Memory and LLMs
 
-- LLMs as repositories of digitized collective memory
+- LLMs as 'repositories' of digitized collective memory
 - Training data selection as memory politics
 - The "averaged" nature of AI-generated historical narratives
 - Absence of contested memory in statistical consensus
 
+<aside class=notes>
 From a memory studies perspective, LLMs function as repositories of digitized collective memory. The selection of training data constitutes a form of memory politics, determining which historical perspectives are included or excluded. The statistical nature of these models produces "averaged" historical narratives that often elide contestation and complexity.
+
+See the special issue we co-edited with Sarah Gensburger, out last december. Several articles insist on the "average" nature of LLMs but also the capitalistic nature of chatbots and generative AI systems: they must give the most 'popular' or 'pleasant' version of an answer to a prompt, including the past. 
+
+</aside>
+
+## chatbot as medium of memory...
+
+..."that construct versions of a past reality." (Erll)
+
+and plays a role "in the encoding and decoding of that which is (to be) remembered." (Erll)
+
+
+
+<small>see: Erll, A. Memory in Culture, p. 120ff.</small>
+
+<aside class=notes>$$
+
+To conclude this firt part, I would qualify generative AI systems -- let's say 'chatbots' as they are more and more multimodal -- are medium of memory. I'll follow here Astrid Erll's *Memory in Culture*, p. 121 and following. She distinguishes material dimension from the social dimension.
+
+- Material dimension (= memory potential)
+  - Communication instruments: externalization, inter- and transmediality of memory. What makes possible the externalization from individual minds to media possible (speech, images, sounds, etc)
+  - Media Technologies: storage (time) and dissemination (space) of memory: writing for instance, including in its current electronic form. Are not neutral containers: their "materiality, potentials and limits contribute to the character of the message" -- here, storage is the internet (the www morespecifically), but also their archive and the transformation of this archive into training dataset, the dissemination is assured through the exchange beteen a user (their prompt) and tthe interface to GenAI system (chatbots). 
+  - Media offers: material objectivations and aesthetic forms of mediated memory -- prompt/answer
+- Social dimension
+  - Back to Halbwachs: 'social frameworks of memory'
+
+Trying then, to analyse 
+
+Stuart Hall's (1980) notion of 'encoding' (production-side functionalization) and 'decoding' (reception-side functionnalization -- a medium of memory must be perceived as a medium of memory).
+
+(anthropomorphisme, dans tout ça? Fait partie des éléments permettant l'adoption comme médium mémoriel?)
+
+
+</aside>
 
 # Part II: Methodological Approach
 
@@ -69,4 +122,93 @@ From a memory studies perspective, LLMs function as repositories of digitized co
 - Historical references: explicit vs. implicit
 - Temporality in language
 - Building a robust identification strategy
+
+<aside class=notes>
+
+Identifying prompts that reference history requires more sophisticated approaches than simple keyword matching. Historical references can be explicit ("Napoleon Bonaparte") or implicit ("the Emperor's exile"), and may involve complex temporal markers. Our methodology must capture this complexity.
+
+</aside>
+
+## see code 
+
+- usign DistillBERT (simpler) to create word embeddings based on "seeds" (large concepts around the historical past)
+- thanks to word embeddings, we can then select prompts that are linked to "history".
+
+<div class="notes">
+Our technical approach involves transforming prompts into vector representations to enable semantic analysis. By using text embedding techniques, we can identify prompts with historical references beyond simple keyword matching. This allows us to build a dataset that captures the rich variety of ways people reference the past.
+</div>
+
+<div class="notes">
+To identify prompts with historical references, we use both lexical and semantic approaches. Starting with seed historical terms, we expand to semantically similar concepts using word embeddings. We can then filter prompts either through string matching or by measuring the semantic similarity between prompts and historical concepts using cosine similarity of their vector representations.
+</div>
+
+<div class="notes">
+Once we've identified historically-related prompts, we use clustering techniques to discover common themes and patterns. By applying dimensionality reduction with UMAP and clustering with DBSCAN, we can identify groups of prompts that reference similar historical concepts, periods, or events. This allows us to map the landscape of historical imagination as expressed through user prompts.
+</div>
+
+# Part III: Results Analysis
+
+
+## Key Findings: Historical References in Prompts
+
+- Temporal distribution of historical references
+- Common historical personas, events, and eras
+- Stylistic patterns in historical prompts
+- Historical accuracy vs. creative liberty
+
+<div class="notes">
+Our analysis reveals several patterns in how users reference history in their prompts. We observe a distribution across different historical periods, with certain eras receiving more attention than others. Popular historical figures and events appear frequently, often with creative embellishments that reveal more about contemporary imagination than historical fact.
+</div>
+
+## Conflicting Historical Narratives
+
+knitr::include_graphics("images/narrative-conflicts.png")
+
+<div class="notes">
+We observe interesting conflicts between user expectations and AI-generated content, particularly around contested historical narratives. Users often prompt for versions of history that align with their preconceptions, while AI systems may present different perspectives based on their training data. These negotiations reveal the tension between personal historical imagination and collective historical narratives.
+</div>
+
+## User Negotiation Patterns
+
+- Prompt refinement strategies
+- Adjective use to guide historical tone
+- Specificity vs. generality in historical requests
+- "Historical" as stylistic marker
+
+<div class="notes">
+Users employ various strategies to negotiate with AI systems when requesting historical content. They refine prompts through iteration, use specific adjectives to guide the tone of historical representation, and vary between highly specific historical requests and general period references. Many users also use "historical" as a stylistic marker rather than a request for historical accuracy.
+</div>
+
+## Case Study: European Historical References
+
+knitr::include_graphics("images/europe-history-network.png")
+
+<div class="notes">
+Building on our previous analysis of prompts containing "European Union," we observe how users connect contemporary European politics with various historical periods and concepts. References to empires, wars, and political movements reveal how users conceptualize European history in relation to current events. These connections offer insight into how collective memory shapes understanding of present political entities.
+</div>
+
+# Conclusion
+
+GenAI platforms  as a New Space for Historical Negotiation
+
+- Comparing with traditional sites of historical consensus
+- Public vs. private negotiation of historical understanding
+- The role of algorithms in mediating historical perspectives
+- Implications for collective memory formation
+
+<div class="notes">
+
+AI systems represent a new space for the negotiation of historical understanding, distinct from traditional sites like educational curricula, museums, or truth commissions. Unlike these institutional spaces, AI interactions are often private, individualized, and algorithmically mediated. This raises important questions about how collective memory will form in an era where historical understanding is increasingly negotiated through technological interfaces.
+</div>
+
+## Future Research Directions
+
+- Longitudinal analysis of historical prompts
+- Cross-cultural comparisons of historical references
+- Educational applications of prompt analysis
+- Ethical considerations for AI-mediated historical understanding
+
+<div class="notes">
+This research opens several promising directions for future work. Longitudinal studies could track how historical references in prompts evolve over time in response to current events. Cross-cultural analyses might reveal different patterns of historical reference across languages and regions. Educational applications could help develop more historically-informed AI systems. Finally, ethical considerations around AI's role in mediating historical understanding require careful attention.
+</div>
 
