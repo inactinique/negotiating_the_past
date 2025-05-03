@@ -94,7 +94,7 @@ and plays a role "in the encoding and decoding of that which is (to be) remember
 
 <small>see: Erll, A. Memory in Culture, p. 120ff.</small>
 
-<aside class=notes>$$
+<aside class=notes>
 
 To conclude this firt part, I would qualify generative AI systems -- let's say 'chatbots' as they are more and more multimodal -- are medium of memory. I'll follow here Astrid Erll's *Memory in Culture*, p. 121 and following. She distinguishes material dimension from the social dimension.
 
