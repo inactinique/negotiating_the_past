@@ -176,3 +176,7 @@ cython_debug/
 data/prompts.csv
 /nltk_data
 data/prompts_full.csv
+api_config.json
+/data/generated
+/data/results_claude
+/iramuteq
