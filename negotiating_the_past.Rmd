@@ -7,9 +7,10 @@ output:
     self_contained: false
     reveal_plugins: ["notes"]
     center: true
+    theme: default
 ---
 
-# 
+#  {background-color=#000000}
 
 historical representations / artificial intelligence / collective memory
 
@@ -38,115 +39,193 @@ Just one word on memory studies: historians are not that many to be active in th
 </aside>
 
 
-# Part I: the latent space of the historical past 
-
-How do generative AI platforms embed the past?
-
-## LLMs and Embedded Historical Patterns
-
-LLMs here are used as examples.
-
-- LLMs as Statistical Pattern Recognizers
-- Training Data as Historical Record
-- Historical Biases in Language Models
-- "Stochastic Parrots" and Historical Truth
-
-<aside class=notes>LLMs rely on transformer architectures that predict tokens based on previous context. Their "knowledge" of history comes from statistical patterns in training data, not genuine understanding. This creates an interesting dynamic when users prompt these systems about historical topics - the system's responses reveal embedded historical narratives from their training data.
-
-</aside>
-
-## Historical Knowledge in Vector Space
-
-- Word embeddings capture semantic relationships
-- Historical concepts represented as vectors
-- Temporal relationships encoded in semantic proximity
-- Cultural associations embedded in language patterns
-
-<aside class=notes>Within the vector space of LLMs, historical concepts are encoded as points in multidimensional space. The relationships between historical events, figures, and concepts are captured in the distances and directions between these vectors. These semantic relationships reflect collective memory patterns from the training corpus.
-
-Latent space: historical concepts are then 'compressed' into a latent space 
-
-see Alban Leveau-Vallier's talk and book
-
-</aside>
-
-## Collective Memory and LLMs
-
-- LLMs as 'repositories' of digitized collective memory
-- Training data selection as memory politics
-- The "averaged" nature of AI-generated historical narratives
-- Absence of contested memory in statistical consensus
-
-<aside class=notes>
-From a memory studies perspective, LLMs function as repositories of digitized collective memory. The selection of training data constitutes a form of memory politics, determining which historical perspectives are included or excluded. The statistical nature of these models produces "averaged" historical narratives that often elide contestation and complexity.
-
-See the special issue we co-edited with Sarah Gensburger, out last december. Several articles insist on the "average" nature of LLMs but also the capitalistic nature of chatbots and generative AI systems: they must give the most 'popular' or 'pleasant' version of an answer to a prompt, including the past. 
-
-</aside>
-
-## chatbot as medium of memory...
-
-..."that construct versions of a past reality." (Erll)
-
-and plays a role "in the encoding and decoding of that which is (to be) remembered." (Erll)
+# an attempt at a theoretical framework  {background-color=#000000}
 
 
+## medium of memory  {background-color=#000000}
+
+> a medium of memory "constructs versions of a past reality" and plays a role "in the encoding and decoding of that which is (to be) remembered."
 
 <small>see: Erll, A. Memory in Culture, p. 120ff.</small>
 
-<aside class=notes>
-
-To conclude this firt part, I would qualify generative AI systems -- let's say 'chatbots' as they are more and more multimodal -- are medium of memory. I'll follow here Astrid Erll's *Memory in Culture*, p. 121 and following. She distinguishes material dimension from the social dimension.
+<aside class="notes">
 
 - Material dimension (= memory potential)
   - Communication instruments: externalization, inter- and transmediality of memory. What makes possible the externalization from individual minds to media possible (speech, images, sounds, etc)
   - Media Technologies: storage (time) and dissemination (space) of memory: writing for instance, including in its current electronic form. Are not neutral containers: their "materiality, potentials and limits contribute to the character of the message" -- here, storage is the internet (the www morespecifically), but also their archive and the transformation of this archive into training dataset, the dissemination is assured through the exchange beteen a user (their prompt) and tthe interface to GenAI system (chatbots). 
   - Media offers: material objectivations and aesthetic forms of mediated memory -- prompt/answer
-- Social dimension
-  - Back to Halbwachs: 'social frameworks of memory'
 
-Trying then, to analyse 
 
-Stuart Hall's (1980) notion of 'encoding' (production-side functionalization) and 'decoding' (reception-side functionnalization -- a medium of memory must be perceived as a medium of memory).
+medium of memory can fulfill several memory functions:
 
-(anthropomorphisme, dans tout ça? Fait partie des éléments permettant l'adoption comme médium mémoriel?)
+- they store information 
+- they allow a form of ciruclation of this information
+- they can also be collective memory triggers
 
+
+For instance: a monument or a statute can be a medium of memory:
+
+- they in some ways allow for the storage of information
+- they it is not their main function, they allow this information to circulate -- basically they are a message to people passing by
+- they are trigger of collective memory: see French Monuments aux morts.
+
+In another words, a medium of memory "constructs versions of a past reality" and plays a role "in the encoding and decoding of that which is (to be) remembered."
+
+
+encoding/decoding = Stuart Hall, 1980.
 
 </aside>
 
-# Part II: Methodological Approach
+## chatbots as medium of memory {background-color=#000000}
 
-## The Challenge of Historical Prompt Identification
+![](img/invite.gif)
 
-- Beyond simple keyword approaches
-- Historical references: explicit vs. implicit
-- Temporality in language
-- Building a robust identification strategy
+
+<aside class="notes">
+
+I define here 'chatbots' as generative AI platform for wide audiences, made of an interface that encourages users to enter a prompt, in ordre to generate text, images, videos, and are more and more multimodal -- inputs can be texts or images, as well as outputs. So we consider here chatbots that are based on diffusion systems or large language models.
+
+We also consider chatbots, and not directly their underlying engines (large language models, or diffusion systems), because chatbots have additional layer of alignments and fine tuning.
+
+For instance, DeepSeek -- the chatbot -- is well known to refuse to answer a question on the Tiananmen massacre. But if you use DeepSeek R1 (I've testes the 7b parameters one), it does not, though it clearly indicates in its reasoning that it should be respecting the chinese law and sensibility on the subject.
+
+This Tienanmen example brings us back to memory: on those additional layers of allignment and fine tuning that are made to allow wide audiences to use easily chatbots, there are additional views on the past that are modified or embedded.
+
+Let's go back to chatbots as medium of memory. 
+
+- chatbots are based on models that are storing information. Models are sets of parameters deduced from a training phase, or patterns based on training datasets, that we don't always know precisely, but contain large expurged snapshots of the web, wikidpedia, probably books datasets, etc. In this sense they can be seen as storage of information, including information on the historical past,
+- chatbots allow a form of circulation of information: that's why they are here, or at least why you pay to use them. Nevertheless, their stochastic ways to restitute information, that does not include any sense of truth, of facts, that can lead to hallucinations, should be carefully considered.
+- chatbots are also triggers of collective memory. That's their interface, based on, often, a single box where users can type questions. Studying the past, in a professional way or a more amateur one, is all about asking questions and trying to find ways -- sources and their analysis -- to answer them. prompts are huge incentives / triggers to query the past, even if they are not only about that, of course.
+
+So, if we consider chatbots as medium of memory, we should also try understanding how they embed views on the past.
+
+</aside>
+
+
+## chatbots and historical patterns {background-color=#000000}
+
+![](img/fractal.gif)
+
 
 <aside class=notes>
 
-Identifying prompts that reference history requires more sophisticated approaches than simple keyword matching. Historical references can be explicit ("Napoleon Bonaparte") or implicit ("the Emperor's exile"), and may involve complex temporal markers. Our methodology must capture this complexity.
+We'll take the example of text generation through LLMs. LLMs are statistical pattern recognizers. They can use patterns to "generate the next word" thanks to their training phase, based on trianing data. As I said earlier, this training data is not well known, but we should consider it as historians: it is an archive, it is made of historical records. But as all historical records, they contain specific views of the past -- I could speak of 'biases', but I think this word is really not pertinent. And, the way the training phase is embedding those views of the past into the model is not at all the way we are dealing with historical records as historians. There's no critical appraisal of those historical records. What matters are patterns, probabilities.
+
+Hence the famouse article of Bender et al. on stochastic parrots. Applying probabilities, patterns to the historical past is not at all the way we are working to try to reconstitute the past. 
 
 </aside>
 
-## see code 
+## aligning the past {background-color=#000000}
 
-- usign DistillBERT (simpler) to create word embeddings based on "seeds" (large concepts around the historical past)
-- thanks to word embeddings, we can then select prompts that are linked to "history".
+![](img/leopold.png)
 
-<div class="notes">
-Our technical approach involves transforming prompts into vector representations to enable semantic analysis. By using text embedding techniques, we can identify prompts with historical references beyond simple keyword matching. This allows us to build a dataset that captures the rich variety of ways people reference the past.
-</div>
+<aside class=notes>
 
-<div class="notes">
-To identify prompts with historical references, we use both lexical and semantic approaches. Starting with seed historical terms, we expand to semantically similar concepts using word embeddings. We can then filter prompts either through string matching or by measuring the semantic similarity between prompts and historical concepts using cosine similarity of their vector representations.
-</div>
+To this stochastic ways to generate texts / images about the past, we should also look at the alignment, feedback (with or without humans in the loop), fine-tuning and any other operations that can be performed to create the chatbot itself. Alignment, for instance, is supposed to ensure that the answers of a chatbot, whatever their modalities, fits with the value of a society: as one of the article we have published in the *Memory Studies Review* special issue we coordinated with Sarah Gensburger, in the end, "alignment" is all about pleasing the shareholders of the society that publishes the platform, which implies to get money from the chatbots, which probably means that the answers must please a large number of users.
 
-<div class="notes">
-Once we've identified historically-related prompts, we use clustering techniques to discover common themes and patterns. By applying dimensionality reduction with UMAP and clustering with DBSCAN, we can identify groups of prompts that reference similar historical concepts, periods, or events. This allows us to map the landscape of historical imagination as expressed through user prompts.
-</div>
+Of course, this alignement is obvious for chatbots that are published in an authoritarian state. We have seen the DeepSeek Tienanmen example before. I could also give the example of ruDALLE, a russian image generation platform, that will send back an image of flowers to all prompts that are about Ukraine.
 
-# Part III: Results Analysis
+Here is a different example: midjourney, as well as DALL.E, have filters that allow the representation of minorities, which is obviously of good intent. But this can lead to abberations. In this image, the aberration is to represent Leopold III as a black king colonizing Congo.
+
+</aside>
+
+## the latent space of the past {background-color=#000000}
+
+![](img/zeus_vectors.png)
+
+<aside class=notes>
+Still taking the examples of LLMs, historical concepts are encoded as points in a multidimensional space, made of word embedings that capture semantic relationships. Then the relationships between historical events, figures, and concepts are captured in the distances and directions between these vectors. Temporal relationships are encoded -- or we can suppose so -- in semantic proximity and cultural associations, including related to memory, are embedded in language patterns. This multidimensional space is 'compressed' in a latent space that captures all those relationships and, when activated by a prompt containing a reference to the past, will send back an answer. This latent space reflect collective memory patterns from the training corpus.
+
+see Alban Leveau-Vallier's talk and book
+</aside>
+
+<!-- À fusionner avec l'une des dias plus haut.
+
+## collective memory and chatbots {background-color=#000000}
+
+<aside class=notes>
+
+Hence can we consider that: 
+
+- LLMs or Diffusion models as 'repositories' of digitized collective memory
+- Training data selection can be viewed as some sort of memory politics
+- The "averaged" nature of AI-generated historical narratives
+- Absence of contested memory in statistical consensus
+
+From a memory studies perspective, LLMs function as repositories of digitized collective memory. The selection of training data constitutes a form of memory politics, determining which historical perspectives are included or excluded. The statistical nature of these models produces "averaged" historical narratives that often elide contestation and complexity.
+
+See the special issue we co-edited with Sarah Gensburger, out last december. Several articles insist on the "average" nature of LLMs but also the capitalistic nature of chatbots and generative AI systems: they must give the most 'popular' or 'pleasant' version of an answer to a prompt, including the past. 
+
+</aside>
+-->
+
+## chatbots as frameworks {background-color=#000000}
+
+
+<img src="img/hakbwachs.png" width=30% />
+
+<aside class=notes>
+
+So, chatbots (and LLMs / Diffusion models behind them) are palying their role of encoding / decoding what is to be remembered. I hope it is what I have just explained. One of the functions of memory media is also to play their role as media frameworks. Their affordances, including anthropomorphism , the ways they are structured are framing what users can expect from those systems.
+
+Beyond that, we will here try to explain in which ways they are also memory frameworks, in the meaning Halbwachs gave to this word, and I think this is a consequence of the fact that chatbots are memory media.
+
+What does Halbwachs mean by "memory frameworks": basically that you can not understand how an individual remembers if you do not consider the social group in which they are living. It is this relationship to the group that frame the individual memory, as the group will have its own view on the past, view that is a consequence of the social relationships between individuals of the group, and of the insertion of this group in a wider society.
+
+</aside>
+
+# empirical approach
+
+<aside class=notes>
+
+So my first part was an attempt -- probably still too drafty -- of theoricizing what are chatbots in terms of collective or cultural memory, what will be their effect.
+
+But as a historian, I have difficulties not to link this to primary sources and to an empirical approach.
+
+What I am trying to do here is to look at prompts and how users are -- this is the core of my argument -- negotiating with the chatbot to get the view of the past they wish. That implies that users may have different prompting strategies, that their prompts evolve while discussing -- I call this discussion part 'stochastic maieutics' -- with the chatbot. I will try to use at the same time close and distant reading of prompts. 
+
+I am using here only texts -- whereas today, images can be some sort of prompts too.
+
+I am using prompts that are published open access, usually comes from open source communities. The result is that those prompts are mostly coming from Stable Diffusion-based platforms, as Stable Diffusion is open source: those prompts are designed to generate image, not text. There is no databases of prompts, to my knowledge, designed to generate texts. Nevertheless, HuggingFace is vast, and I may have missed something.
+
+<aside>
+
+## what is a reference to the past?
+
+> army of the european union invades budapest 2 0 2 2, highly detailed painting, digital painting, artstation, concept art 
+
+> army of the european union fighting on the streets of budapest 2 0 2 2, highly detailed illustration for time magazine cover art 
+
+> army of the european union with tanks fighting on the streets of budapest 2 0 2 2, highly detailed oil painting 
+
+<aside class=notes>
+
+So the aim is to build a corpus of prompts and to analyse it. There is a set of methodological issues to take into account:
+- unless I want to study a specific event or individual, a keyword approach is meaningless.
+- how to define a historical reference? All the more when they are implicit?
+- how do I look for traces of temporalities in prompts, in language?
+
+Let's take an example: the three prompts here are not refering explicitly to the past. But just use the prompt for a search on an image search engine: all the results are historical. We have here an implicit reference, probably to the hungarian revolution of 1956, that was put to an end by a soviet intervention.
+
+So how to build a robust identification strategy?
+
+I have tried several strategies: word embeddings, good old iramuteq (topic modeling like approach), but also the use of LLMs: a local one (but too ressource intensive for my computer), and of course APIs from Claude and OpenAI. Though not perfect -- the implicit part is not fully taken into account -- it's the use of Claude that worked the best. I must precise that for now I did not do any benchmarking, which is an obvious weakness, that will be solved later.
+
+</aside>
+
+## prompting to find references to the past {background-color=#000000}
+
+<img src="img/prompt.png" width=80% />
+
+
+<aside class=notes>
+
+In the end, most of the analysis here is based on a prompts corpus that was created using the Claude API and this prompt to help Claude reasoning for each item of my corpus. It's a mixed approach: reasoning and personae, the prompt being enginered through a negociation between me and Claude (the chatbot).
+
+</aside>
+
+
+# negotiating the past
 
 
 ## Key Findings: Historical References in Prompts
