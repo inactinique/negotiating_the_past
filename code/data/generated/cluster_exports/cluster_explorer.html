@@ -1,0 +1,101 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Explorateur de Clusters de Prompts Historiques</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+            h1 { color: #2c3e50; }
+            h2 { color: #3498db; margin-top: 30px; }
+            .cluster { border: 1px solid #ddd; padding: 15px; margin: 15px 0; border-radius: 5px; }
+            .cluster-header { display: flex; justify-content: space-between; }
+            .concept-tag { display: inline-block; background: #e0f7fa; padding: 3px 8px; margin: 3px; border-radius: 3px; }
+            .prompt-item { padding: 8px; margin: 5px 0; background: #f9f9f9; border-left: 3px solid #3498db; }
+            .similarity { font-size: 0.8em; color: #666; }
+            .stats { color: #7f8c8d; font-size: 0.9em; }
+            .toggle-button { background: #3498db; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px; }
+            .prompt-list { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+            .expanded { max-height: 2000px; }
+            .search-container { margin: 20px 0; }
+            #searchInput { padding: 8px; width: 250px; }
+            #statsSection { margin-top: 30px; }
+        </style>
+    </head>
+    <body>
+        <h1>Explorateur de Clusters de Prompts Historiques</h1>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Rechercher des prompts...">
+            <button onclick="searchPrompts()">Rechercher</button>
+        </div>
+
+        <div id="statsSection">
+            <h2>Statistiques générales</h2>
+            <p>Nombre total de clusters: <strong>0</strong></p>
+            <p>Nombre total de prompts clusterisés: <strong>12</strong></p>
+        </div>
+
+        <div id="clustersSection">
+    
+        <div class="cluster">
+            <div class="cluster-header">
+                <h3>Points de bruit</h3>
+                <button class="toggle-button" onclick="togglePrompts(this)">Afficher les prompts</button>
+            </div>
+            <div class="stats">
+                <p><strong>Taille:</strong> 12 prompts</p>
+            </div>
+            <div class="prompt-list">
+                <h4>Exemples de prompts:</h4>
+                <div class="prompt-item">1. napoleon bonaparte smoking weed in the sunset. digital art. ultra realistic. 4 k. trending on artstation</div><div class="prompt-item">2. drdisrespect as napoleon, wearing oakley sunglasses, breath taking, dignified, highly detailed painting by gaston bussiere, j. c. leyendecker, greg rutkowski, craig mullins, 8 k</div><div class="prompt-item">3. Joe Biden dressed as Napoleon dynamite</div><div class="prompt-item">4. Napoleon Crossing the Alps on a Harley Davidson , Salvador Dali style , oil painting</div><div class="prompt-item">5. Napoleon looking his phone by Caravage</div>
+            </div>
+        </div>
+        
+        </div>
+
+        <script>
+            function togglePrompts(button) {
+                const list = button.parentNode.nextElementSibling.nextElementSibling;
+                list.classList.toggle('expanded');
+                button.textContent = list.classList.contains('expanded') ? 'Masquer les prompts' : 'Afficher les prompts';
+            }
+
+            function searchPrompts() {
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                const clusters = document.querySelectorAll('.cluster');
+
+                if (searchTerm === '') {
+                    // Si la recherche est vide, afficher tous les clusters
+                    clusters.forEach(cluster => {
+                        cluster.style.display = 'block';
+                    });
+                    return;
+                }
+
+                clusters.forEach(cluster => {
+                    const promptItems = cluster.querySelectorAll('.prompt-item');
+                    let matchFound = false;
+
+                    promptItems.forEach(item => {
+                        if (item.textContent.toLowerCase().includes(searchTerm)) {
+                            matchFound = true;
+                        }
+                    });
+
+                    // Aussi vérifier dans les concepts
+                    const conceptTags = cluster.querySelectorAll('.concept-tag');
+                    conceptTags.forEach(tag => {
+                        if (tag.textContent.toLowerCase().includes(searchTerm)) {
+                            matchFound = true;
+                        }
+                    });
+
+                    cluster.style.display = matchFound ? 'block' : 'none';
+                });
+            }
+        </script>
+    </body>
+    </html>
+    

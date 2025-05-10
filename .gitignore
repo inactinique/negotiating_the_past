@@ -180,3 +180,7 @@ api_config.json
 /data/generated
 /data/results_claude
 /iramuteq
+code/data/prompts.csv
+code/data/prompts_list
+/code/results
+data/prompts_list
