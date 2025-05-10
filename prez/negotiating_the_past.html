@@ -346,8 +346,9 @@ this group in a wider society.</p>
 </aside>
 </section></section>
 <section>
-<section id="empirical-approach" class="title-slide slide level1">
-<h1>empirical approach</h1>
+<section id="empirical-approach" class="title-slide slide level1"
+data-background-color="#000000">
+<h1 data-background-color="#000000">empirical approach</h1>
 <aside class=notes>
 <p>So my first part was an attempt – probably still too drafty – of
 theoricizing what are chatbots in terms of collective or cultural
@@ -364,16 +365,20 @@ reading of prompts.</p>
 <p>I am using here only texts – whereas today, images can be some sort
 of prompts too.</p>
 <p>I am using prompts that are published open access, usually comes from
-open source communities. The result is that those prompts are mostly
-coming from Stable Diffusion-based platforms, as Stable Diffusion is
-open source: those prompts are designed to generate image, not text.
-There is no databases of prompts, to my knowledge, designed to generate
-texts. Nevertheless, HuggingFace is vast, and I may have missed
-something.</p>
+open source communities, or available online on website such as
+lexica.art that offer an API to get prompts. The result is that those
+prompts are mostly coming from Stable Diffusion-based platforms, as
+Stable Diffusion is open source: those prompts are designed to generate
+image, not text. There is no databases of prompts, to my knowledge,
+designed to generate texts. Nevertheless, HuggingFace is vast, and I may
+have missed something.</p>
 <aside>
 </section>
-<section id="what-is-a-reference-to-the-past" class="slide level2">
-<h2>what is a reference to the past?</h2>
+<section id="what-is-a-reference-to-the-past" class="slide level2"
+data-background-color="#000000">
+<h2 data-background-color="#000000">what is a reference to the
+past?</h2>
+<div style="font-size:11pt;">
 <blockquote>
 <p>army of the european union invades budapest 2 0 2 2, highly detailed
 painting, digital painting, artstation, concept art</p>
@@ -386,6 +391,7 @@ painting, digital painting, artstation, concept art</p>
 <p>army of the european union with tanks fighting on the streets of
 budapest 2 0 2 2, highly detailed oil painting</p>
 </blockquote>
+</div>
 <aside class="notes">
 <p>So the aim is to build a corpus of prompts and to analyse it. There
 is a set of methodological issues to take into account: - unless I want
@@ -399,13 +405,22 @@ search engine: all the results are historical. We have here an implicit
 reference, probably to the hungarian revolution of 1956, that was put to
 an end by a soviet intervention.</p>
 <p>So how to build a robust identification strategy?</p>
-<p>I have tried several strategies: word embeddings, good old iramuteq
-(topic modeling like approach), but also the use of LLMs: a local one
-(but too ressource intensive for my computer), and of course APIs from
-Claude and OpenAI. Though not perfect – the implicit part is not fully
-taken into account – it’s the use of Claude that worked the best. I must
-precise that for now I did not do any benchmarking, which is an obvious
-weakness, that will be solved later.</p>
+<p>I have tried several strategies: - web scrapping on focused keywords
+(European union): limited corpus, humanly readable, some distant
+reading, - word embeddings: keywords as seeds, then word embeddings
+based on the whole corpus of 10 millions or a sample, - good old
+iramuteq (topic modeling like approach) on 10 millions prompts –
+analysis still ongoing for 10 days, - use of LLMs (best results if you
+do not want to start with keywords): - a local one (too ressource
+intensive for my computer), - APIs from Claude (9% of prompts) and
+OpenAI (3% of prompts).</p>
+<p>Though not perfect – the implicit part is not fully taken into
+account – it’s the use of Claude that worked the best, if you don’t want
+to use keywords. I must precise that for now I did not do any
+benchmarking, which is an obvious weakness, that I plan to adress
+later.</p>
+<p>In this prez, I’m using data from web scrapping and the use of LLMs
+part. Let’s have a look on how I have used Claude.</p>
 </aside>
 </section>
 <section id="prompting-to-find-references-to-the-past"
@@ -413,112 +428,179 @@ class="slide level2" data-background-color="#000000">
 <h2 data-background-color="#000000">prompting to find references to the
 past</h2>
 <p><img src="img/prompt.png" width=80% /></p>
-</section></section>
-<section>
-<section id="part-iii-results-analysis"
-class="title-slide slide level1">
-<h1>Part III: Results Analysis</h1>
-
-</section>
-<section id="key-findings-historical-references-in-prompts"
-class="slide level2">
-<h2>Key Findings: Historical References in Prompts</h2>
-<ul>
-<li>Temporal distribution of historical references</li>
-<li>Common historical personas, events, and eras</li>
-<li>Stylistic patterns in historical prompts</li>
-<li>Historical accuracy vs. creative liberty</li>
-</ul>
 <aside class="notes">
-<p>Our analysis reveals several patterns in how users reference history
-in their prompts. We observe a distribution across different historical
-periods, with certain eras receiving more attention than others. Popular
-historical figures and events appear frequently, often with creative
-embellishments that reveal more about contemporary imagination than
-historical fact.</p>
+<p>In the end, most of the analysis here is based on a prompts corpus
+that was created using the Claude API on one side and web scrapping on
+the keyword ‘european union’ on the other side. Let’s focus a bit on
+Claude: this prompt was co-written with Claude to help Claude reasoning
+for each item of my corpus. It’s a mixed approach: reasoning and
+personae, the prompt being enginered through a negociation between me
+and Claude (the chatbot).</p>
+<p>What is missing here is that I could add as an instruction to explain
+why it decided for a yes or for a no.</p>
+<p>Once I have a corpus – or, here, two corpora – I can perform
+analyses. I will go from distant to close readings. Distant reading here
+is at the same time used to start the interpretation and as a search
+tools for more refined analyses, including analyses of precise prompts
+or series of prompts.</p>
 </aside>
 </section>
-<section id="conflicting-historical-narratives" class="slide level2">
-<h2>Conflicting Historical Narratives</h2>
-<p>knitr::include_graphics(“images/narrative-conflicts.png”)</p>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p><img src="img/historical_yes_dendrogramme_1.png" /></p>
 <aside class="notes">
-<p>We observe interesting conflicts between user expectations and
-AI-generated content, particularly around contested historical
-narratives. Users often prompt for versions of history that align with
-their preconceptions, while AI systems may present different
-perspectives based on their training data. These negotiations reveal the
-tension between personal historical imagination and collective
-historical narratives.</p>
+<p>This is a dataviz obtained with iramuteq. Iramuteq performs something
+that looks like topi modelling, but it is not bag of words. The words
+that you see are in fact the most representative words of clusters of
+prompts.</p>
+<p>It is a dataviz that should still be reworked, in the sense that the
+settings used here should be refined to make the difference between two
+parts of the usual prompt: the part with content, the part with the
+style.</p>
+<p>Nevertheless, there’s some past everywhere here. In the style,
+obviously, but also in the content.</p>
+<p>And most references to the past, if they are not arty, are to wars
+(cluster 17), or propanganda wars (cluster 8). And most of them are
+somehow linked to the present news (trump, propaganda, soviet, macron in
+the same cluster for instance).</p>
 </aside>
 </section>
-<section id="user-negotiation-patterns" class="slide level2">
-<h2>User Negotiation Patterns</h2>
-<ul>
-<li>Prompt refinement strategies</li>
-<li>Adjective use to guide historical tone</li>
-<li>Specificity vs. generality in historical requests</li>
-<li>“Historical” as stylistic marker</li>
-</ul>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p><img src="img/eu_dendrogramme_1.png" width="70%" /></p>
 <aside class="notes">
-<p>Users employ various strategies to negotiate with AI systems when
-requesting historical content. They refine prompts through iteration,
-use specific adjectives to guide the tone of historical representation,
-and vary between highly specific historical requests and general period
-references. Many users also use “historical” as a stylistic marker
-rather than a request for historical accuracy.</p>
-</aside>
-</section>
-<section id="case-study-european-historical-references"
-class="slide level2">
-<h2>Case Study: European Historical References</h2>
-<p>knitr::include_graphics(“images/europe-history-network.png”)</p>
-<aside class="notes">
-<p>Building on our previous analysis of prompts containing “European
-Union,” we observe how users connect contemporary European politics with
-various historical periods and concepts. References to empires, wars,
-and political movements reveal how users conceptualize European history
-in relation to current events. These connections offer insight into how
-collective memory shapes understanding of present political
-entities.</p>
+<p>Same dataviz, but with the webscrapped from lexica corpus, based on
+the ‘european union’ keyword. The lexica API has several sorts of
+keyword search and here is a keyword search that is based on word
+embeddings: it’s not strictly a keyword search, more a ‘thematic’
+search.</p>
+<p>What you see here is interesting, because it’s a lot linking the
+European Union and Europe themes to all sorts of empire themes and to
+some sort of medievalism. We also find back the ‘propaganda’ cluster –
+probably because the Stable Diffusion 10 million prompts date back to
+2022 and the web scrapping of lexica to 2023: it’s hughly influenced by
+the agression against Ukraine.</p>
 </aside>
 </section></section>
 <section>
-<section id="conclusion" class="title-slide slide level1">
-<h1>Conclusion</h1>
-<p>GenAI platforms as a New Space for Historical Negotiation</p>
-<ul>
-<li>Comparing with traditional sites of historical consensus</li>
-<li>Public vs. private negotiation of historical understanding</li>
-<li>The role of algorithms in mediating historical perspectives</li>
-<li>Implications for collective memory formation</li>
-</ul>
+<section id="negotiating-the-past" class="title-slide slide level1"
+data-background-color="#000000">
+<h1 data-background-color="#000000">negotiating the past</h1>
 <aside class="notes">
-<p>AI systems represent a new space for the negotiation of historical
-understanding, distinct from traditional sites like educational
-curricula, museums, or truth commissions. Unlike these institutional
-spaces, AI interactions are often private, individualized, and
-algorithmically mediated. This raises important questions about how
-collective memory will form in an era where historical understanding is
-increasingly negotiated through technological interfaces.</p>
+<p>Those distant reading analyses are interesting, but confirm more than
+discover: in a way, we expect Europe to be linked to the concept of
+empire, we expect that lots of references to the past are linked to the
+‘style’ part of a prompt.</p>
+<p>But those distant readings allow us also to go back to specific
+prompts. By looking at prompts that are very similar, we can trace the
+evolution of a prompt written / re-written several times by a user. And
+it’s here, that we can see that gen AI platforms, seen as frameworks,
+encourage users to negotiate with the machine the past they want to see
+or read.</p>
+<p>This negotiation can be seen as a confrontation between several kinds
+of collective memories: the one that are embedded in the genAI platform
+and that comes from the way the LLM or diffusion system was trained and
+from the corpus it was trained on; the collective memory of the group
+the individual belongs too; the individuals own vision of the past.</p>
+<p>I’ll give two examples.</p>
 </aside>
 </section>
-<section id="future-research-directions" class="slide level2">
-<h2>Future Research Directions</h2>
-<ul>
-<li>Longitudinal analysis of historical prompts</li>
-<li>Cross-cultural comparisons of historical references</li>
-<li>Educational applications of prompt analysis</li>
-<li>Ethical considerations for AI-mediated historical understanding</li>
-</ul>
+<section id="section-3" class="slide level2"
+data-background-color="#000000">
+<h2 data-background-color="#000000"></h2>
+<p><img src="img/macron-leyen-knights2.jpg" width="50%" /></p>
+<blockquote>
+<p><small>Ursula von Der Leyne [sic] and Emmanuel Macron, Peter Pavel in
+the image of knights of the round table</small></p>
+</blockquote>
 <aside class="notes">
-<p>This research opens several promising directions for future work.
-Longitudinal studies could track how historical references in prompts
-evolve over time in response to current events. Cross-cultural analyses
-might reveal different patterns of historical reference across languages
-and regions. Educational applications could help develop more
-historically-informed AI systems. Finally, ethical considerations around
-AI’s role in mediating historical understanding require careful
-attention.</p>
+<p>I have showed before prompts that relate to the hungarian revolution
+– unfortunately I do not have the images.</p>
+<p>Here is another example. Several prompts of this kind were written,
+with some differences, but results that are very similar.</p>
+<p>As you can see, we can consider there are several references to the
+past here.</p>
+<ul>
+<li>the reference to a myth, the knight of the round table, that is
+supposed to be medieval, but that is in the end more Renaissance than
+medieval - which gives a hint on how collectively we see the Middle
+Age.</li>
+<li>as this image is from 2023, it is also a way to see how the memory
+of some politicians is being built – and obviously, Petr Pavel’s memory
+outside of the czesh republic is not very well built…</li>
+<li>we could say also that Macron is slightly more recongizable than von
+der Leyen (who looks like an average 50s-60s-ish european woman), but
+the fault in the prompt might induce that.</li>
+</ul>
+<p>The user never managed to have Petr Pavel on their images.</p>
+</aside>
+</section>
+<section id="section-4" class="slide level2"
+data-background-color="#000000">
+<h2 data-background-color="#000000"></h2>
+<p><img src="img/biden.png" width="50%" /></p>
+<blockquote>
+<p><small>joe biden doing a nazi salute, in front of brandenburger tor.
+huge nazi crowd in front of him. face of joe biden is clearly visible.
+canon eos r 3, f / 1. 4, iso 1 6 0 0, 1 / 8 0 s, 8 k, raw,
+grainy</small></p>
+</blockquote>
+<aside class="notes">
+<p>This is a striking example of negotition with a machine to get
+something in the present with references to the past that serves as an
+ideological reading of the present.</p>
+<p>The user never got what they wanted. Biden doing a nazi salute in
+front of nazis – that just does not exist. Nevertheless, the prompt
+activated patterns from the second world war and maybe from the cold
+war.</p>
+<p>I may be overinterpreting, but I can see influence, of course, from
+nazi footages, but also from De Gaulle in August 1944 (26) in the Champs
+Elysées, Kennedy in front of the Brandenburger Tor.</p>
+<p>The political goal of the prompt writer here is partly in failure:
+this political goal is confronted with the collective memory of the
+second world war, that are preeminent over their views.</p>
+</aside>
+</section></section>
+<section>
+<section id="conclusion" class="title-slide slide level1"
+data-background-color="#000000">
+<h1 data-background-color="#000000">conclusion</h1>
+<aside class="notes">
+<p>Chatbots function as media of memory that store, circulate, and
+trigger collective memories. They are medium of memory because AI models
+encode historical perspectives - metaphorically, we could call that the
+collective memory latent space – that reflects collective memory
+patterns from training corpora. On top of the training, process,
+alignment and fine-tuning embed specific views of the past (e.g.,
+DeepSeek/Tiananmen, minority representations). In this sense, we can
+also consider chatbots as frameworks.</p>
+<p>When we look at users’ prompt that have references to the past, we
+see how users are writing those references to the past, but also how
+they negotiate with gen AI systems to obtain their desired vision of the
+past, creating a confrontation between different collective memories,
+but also, often, their vision of the present.</p>
+<p>This negotiation reveals tensions between user expectations and
+historical representations (frameworks) embedded in AI.</p>
+</aside>
+</section>
+<section id="whats-next" class="slide level2"
+data-background-color="#000000">
+<h2 data-background-color="#000000">what’s next</h2>
+<p><img src="img/04_DeGaulle.jpg" width=30% /></p>
+<blockquote>
+<p><small>De Gaulle bronze sur une plage de Normandie</small></p>
+</blockquote>
+<aside class="notes">
+<p>I have tried to prove all that with primary sources, in other words
+prompts. It’s far from perfect. My corpus is not good enough, it must be
+reinforced, better tailored to my needs. It is possible in different
+ways, that I can detail by answering questions.</p>
+<p>Beyond this, I think we should remid something quite important about
+LLMs and Diffusion System: they are the products of artefacts from the
+past (the training dataset), they are producing primary sources
+(prompts, images, texts), and they are triggers of collective
+memory.</p>
+<p>In this sense, GenAI systems are fundmentaly historical products.</p>
 </aside>
 </section></section>
     </div>
