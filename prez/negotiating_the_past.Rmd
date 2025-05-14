@@ -191,7 +191,7 @@ So how to build a robust identification strategy?
 ### corpus <span style="font-size:26pt">1</span>
 
 <small>
-kreia corpus (sample) &rarr; claude api &rarr; 5000 prompts
+krea corpus (sample) &rarr; claude api &rarr; 5000 prompts
 </small>
 
 ### corpus <span style="font-size:26pt">2</span>
@@ -204,7 +204,7 @@ keyword ('european union') &rarr; api lexica.art &rarr; 2000 prompts
 
 I have tried several strategies to constitute two corpora.
 
-- The first is based on the Kreia Corpus, a 10 million prompts corpus, elaborated by Kreia, a platform based on Stable Diffusion;
+- The first is based on the krea Corpus, a 10 million prompts corpus, elaborated by krea, a platform based on Stable Diffusion;
 - The second one is based on lexica.art, a prompt search engine and image generation platform (Stable Diffusion), with an API that allows to get prompts and corresponding images based on keywords.
 
 For Corpus 1, I have set up a sample of 50 000 lines (because too costly otherwise), sent them to the Claude API with a prompt explaining to Claude sonnet how to determine if a line contained references to the past, and Claude sends back a 'yes' or a 'no'.
@@ -223,7 +223,7 @@ Let's focus a bit on Claude: this prompt was co-written with Claude to help Clau
 
 It's the use of Claude that worked the best. It's far from perfect: the implicit part is not fully taken into account and some prompts are refering to the past, but not the historical past. 
 
-I must precise that for now I did not do any benchmarking, which is an obvious weakness, that I plan to adress. Furthermore, I used a sample of the kreia corpus for cost reasons. The plan is at one point to find prompts with references to the past in the full 10 mmillion lines corpus, which should allow me to get around 900 000 prompts with references to the past.
+I must precise that for now I did not do any benchmarking, which is an obvious weakness, that I plan to adress. Furthermore, I used a sample of the krea corpus for cost reasons. The plan is at one point to find prompts with references to the past in the full 10 mmillion lines corpus, which should allow me to get around 900 000 prompts with references to the past.
 
 </aside>
 
@@ -232,7 +232,7 @@ I must precise that for now I did not do any benchmarking, which is an obvious w
 ### corpus <span style="font-size:26pt">1</span>
 
 <small>
-kreia corpus (sample) &rarr; claude api &rarr; 5000 prompts
+krea corpus (sample) &rarr; claude api &rarr; 5000 prompts
 </small>
 
 ### corpus <span style="font-size:26pt">2</span>
