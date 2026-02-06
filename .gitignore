@@ -183,4 +183,5 @@ api_config.json
 code/data/prompts.csv
 code/data/prompts_list
 /code/results
+/code/logs/
 data/prompts_list
