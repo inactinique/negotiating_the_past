@@ -185,3 +185,4 @@ code/data/prompts_list
 /code/results
 /code/logs/
 data/prompts_list
+code/data/results_mlx/full_results.csv
