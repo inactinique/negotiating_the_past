@@ -187,3 +187,22 @@ code/data/prompts_list
 data/prompts_list
 code/data/results_mlx/full_results.csv
 code/data/results_mlx/full_results copy.csv
+
+# ============================================================
+# Données volumineuses — par MOTIF (couvre analysis/ et tout
+# nouveau dossier). Stockées hors git (Hugging Face / Zenodo).
+# ============================================================
+*.csv
+*.parquet
+*.ods
+data/
+code/data/
+code/oldies/data/
+
+# Système macOS / Jupyter
+.DS_Store
+.ipynb_checkpoints/
+
+# Artefacts JupyterLab / Anaconda
+.virtual_documents/
+anaconda_projects/
